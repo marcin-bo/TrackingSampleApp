@@ -17,7 +17,6 @@
 		5A30AC58274EF44A00B7B197 /* ArticleListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC57274EF44A00B7B197 /* ArticleListCoordinator.swift */; };
 		5A30AC5D274EF47700B7B197 /* OfferListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC5C274EF47700B7B197 /* OfferListCoordinator.swift */; };
 		5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBBCDF274D969500BF096C /* AppDelegate.swift */; };
-		5ADBBCE2274D969500BF096C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBBCE1274D969500BF096C /* SceneDelegate.swift */; };
 		5ADBBCE9274D96A000BF096C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADBBCE8274D96A000BF096C /* Assets.xcassets */; };
 		5ADBBCEC274D96A000BF096C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADBBCEA274D96A000BF096C /* LaunchScreen.storyboard */; };
 		5ADBBCF7274D96A100BF096C /* TrackingSampleAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBBCF6274D96A100BF096C /* TrackingSampleAppTests.swift */; };
@@ -53,7 +52,6 @@
 		5A30AC5C274EF47700B7B197 /* OfferListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferListCoordinator.swift; sourceTree = "<group>"; };
 		5ADBBCDC274D969500BF096C /* TrackingSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADBBCDF274D969500BF096C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5ADBBCE1274D969500BF096C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5ADBBCE8274D96A000BF096C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ADBBCEB274D96A000BF096C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ADBBCED274D96A000BF096C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,7 +169,6 @@
 				5A7BAB0F274FF04B006BFDE7 /* Features */,
 				5A30AC2D274EDFFE00B7B197 /* Coordinator */,
 				5ADBBCDF274D969500BF096C /* AppDelegate.swift */,
-				5ADBBCE1274D969500BF096C /* SceneDelegate.swift */,
 				5ADBBCEA274D96A000BF096C /* LaunchScreen.storyboard */,
 				5ADBBCED274D96A000BF096C /* Info.plist */,
 				5ADBBD12274D96C400BF096C /* Resources */,
@@ -343,7 +340,6 @@
 				5A30AC5D274EF47700B7B197 /* OfferListCoordinator.swift in Sources */,
 				5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */,
 				5A30AC50274EF40900B7B197 /* HomeCoordinator.swift in Sources */,
-				5ADBBCE2274D969500BF096C /* SceneDelegate.swift in Sources */,
 				5A30AC20274E818700B7B197 /* OfferListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
