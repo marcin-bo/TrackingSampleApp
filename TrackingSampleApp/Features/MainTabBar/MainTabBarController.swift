@@ -8,14 +8,8 @@
 import UIKit
 
 final class MainTabBarController: UITabBarController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTabBars()
         view.backgroundColor = .systemPink
-    }
-
-    private func setupTabBars() {
-        
     }
 }
