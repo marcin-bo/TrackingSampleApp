@@ -94,12 +94,55 @@
 			isa = PBXGroup;
 			children = (
 				5A30AC2E274EE01400B7B197 /* Coordinator.swift */,
-				5A30AC4A274EF28D00B7B197 /* AppFlowCoordinator.swift */,
-				5A30AC4F274EF40900B7B197 /* HomeCoordinator.swift */,
-				5A30AC57274EF44A00B7B197 /* ArticleListCoordinator.swift */,
-				5A30AC5C274EF47700B7B197 /* OfferListCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		5A7BAB0F274FF04B006BFDE7 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				5A7BAB13274FF1C1006BFDE7 /* MainTabBar */,
+				5A7BAB10274FF053006BFDE7 /* Home */,
+				5A7BAB11274FF059006BFDE7 /* ArticleList */,
+				5A7BAB12274FF063006BFDE7 /* OfferList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		5A7BAB10274FF053006BFDE7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5A30AC4F274EF40900B7B197 /* HomeCoordinator.swift */,
+				5A30AC15274E814900B7B197 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5A7BAB11274FF059006BFDE7 /* ArticleList */ = {
+			isa = PBXGroup;
+			children = (
+				5A30AC57274EF44A00B7B197 /* ArticleListCoordinator.swift */,
+				5A30AC1A274E817800B7B197 /* ArticleListViewController.swift */,
+			);
+			path = ArticleList;
+			sourceTree = "<group>";
+		};
+		5A7BAB12274FF063006BFDE7 /* OfferList */ = {
+			isa = PBXGroup;
+			children = (
+				5A30AC5C274EF47700B7B197 /* OfferListCoordinator.swift */,
+				5A30AC1F274E818700B7B197 /* OfferListViewController.swift */,
+			);
+			path = OfferList;
+			sourceTree = "<group>";
+		};
+		5A7BAB13274FF1C1006BFDE7 /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				5A30AC4A274EF28D00B7B197 /* AppFlowCoordinator.swift */,
+				5A30AC10274E807F00B7B197 /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
 			sourceTree = "<group>";
 		};
 		5ADBBCD3274D969500BF096C = {
@@ -125,13 +168,10 @@
 		5ADBBCDE274D969500BF096C /* TrackingSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A7BAB0F274FF04B006BFDE7 /* Features */,
 				5A30AC2D274EDFFE00B7B197 /* Coordinator */,
 				5ADBBCDF274D969500BF096C /* AppDelegate.swift */,
 				5ADBBCE1274D969500BF096C /* SceneDelegate.swift */,
-				5A30AC10274E807F00B7B197 /* MainTabBarController.swift */,
-				5A30AC15274E814900B7B197 /* HomeViewController.swift */,
-				5A30AC1A274E817800B7B197 /* ArticleListViewController.swift */,
-				5A30AC1F274E818700B7B197 /* OfferListViewController.swift */,
 				5ADBBCEA274D96A000BF096C /* LaunchScreen.storyboard */,
 				5ADBBCED274D96A000BF096C /* Info.plist */,
 				5ADBBD12274D96C400BF096C /* Resources */,
