@@ -17,7 +17,7 @@ final class OfferListCoordinator: Coordinator {
     private var navigationController: UINavigationController
 
     init() {
-        self.navigationController = UINavigationController(rootViewController: OffersListViewController())
+        self.navigationController = UINavigationController(rootViewController: OfferListViewController())
         self.childCoordinators = [Coordinator]()
     }
 
