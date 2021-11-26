@@ -10,6 +10,7 @@ import UIKit
 final class OfferListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Offers"
         view.backgroundColor = .blue
     }
 }

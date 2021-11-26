@@ -10,6 +10,7 @@ import UIKit
 final class ArticleListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Articles"
         view.backgroundColor = .red
     }
 }
