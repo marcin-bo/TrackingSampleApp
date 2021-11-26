@@ -7,17 +7,9 @@
 
 import UIKit
 
-
-struct Widget {
-    let title: String
-    let shortDescription: String
-}
-
 final class HomeViewController: UITableViewController {
     private let widgets: [Widget] = {
         var widgets = [Widget]()
-        widgets.append(Widget(title: "Title 1", shortDescription: "Short description 1"))
-        widgets.append(Widget(title: "Title 2", shortDescription: "Short description 2"))
         return widgets
     }()
     
@@ -58,10 +50,14 @@ final class HomeViewController: UITableViewController {
             )
         }()
         
-        cell.imageView?.image = UIImage(named: "article.png")
-        cell.textLabel?.text = "Text"
-        cell.detailTextLabel?.numberOfLines = 0
-        cell.detailTextLabel?.text = "Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text Long text"
+        if indexPath.row < widgets.count {
+            let widget = widgets[indexPath.row]
+            cell.imageView?.image = UIImage(named: widget.imageFilename)
+            cell.textLabel?.text = widget.title
+            cell.detailTextLabel?.numberOfLines = 0
+            cell.detailTextLabel?.text = widget.subtitle
+        }
+        
         return cell
     }
 }
