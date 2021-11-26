@@ -26,21 +26,21 @@ final class AppFlowCoordinator: Coordinator {
         let tab1 = homeCoordinator.rootViewController
         tab1.tabBarItem = UITabBarItem(
             title: "Home",
-            image: UIImage(named: "tab1.png"),
+            image: UIImage(named: "home.png"),
             selectedImage: nil
         )
         
         let tab2 = articleListCoordinator.rootViewController
         tab2.tabBarItem = UITabBarItem(
             title: "Articles",
-            image: UIImage(named: "tab2.png"),
+            image: UIImage(named: "article.png"),
             selectedImage: nil
         )
         
         let tab3 = offerListCoordinator.rootViewController
         tab3.tabBarItem = UITabBarItem(
             title: "Offers",
-            image: UIImage(named: "tab3.png"),
+            image: UIImage(named: "offer.png"),
             selectedImage: nil
         )
         tabBarController.viewControllers = [tab1, tab2, tab3]
