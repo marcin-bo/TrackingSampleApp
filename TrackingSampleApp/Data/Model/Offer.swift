@@ -5,13 +5,13 @@
 //  Created by Marcin Borek on 26/11/2021.
 //
 
-public struct Offer {
-    public let machineName: String
-    public let title: String
-    public let subtitle: String
-    public let imageFilename: String
-    public let description: String
-    public let price: Float
+struct Offer {
+    let machineName: String
+    let title: String
+    let subtitle: String
+    let imageFilename: String
+    let description: String
+    let price: Float
 }
 
 extension Offer: Widget { }
