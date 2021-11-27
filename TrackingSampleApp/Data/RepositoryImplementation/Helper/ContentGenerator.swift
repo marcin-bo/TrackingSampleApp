@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Helper used to create text for models
+/// Helper used to create model entites
 struct ContentGenerator {
     
     static func makeArticle(id: Int) -> Article {
