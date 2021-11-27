@@ -8,8 +8,8 @@
 struct OfferListViewModel {
     private let widgets: [Widget]
     
-    init(offersStorage: OffersInMemoryStorage) {
-        self.widgets = offersStorage.findAll()
+    init(offersRepository: OffersRepository) {
+        self.widgets = offersRepository.findAll()
     }
     
     func count() -> Int {

@@ -8,8 +8,8 @@
 struct ArticleListViewModel {
     private let widgets: [Widget]
     
-    init(articlesStorage: ArticlesInMemoryStorage) {
-        self.widgets = articlesStorage.findAll()
+    init(articlesRepository: ArticlesRepository) {
+        self.widgets = articlesRepository.findAll()
     }
     
     func count() -> Int {

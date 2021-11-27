@@ -1,11 +1,11 @@
 //
-//  OffersInMemoryStorage.swift
+//  OffersStorage.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 27/11/2021.
 //
 
-struct OffersStorage: Repository {
+struct OffersStorage: OffersRepository {
     func findFirst(machineName: String) -> Offer? {
         findAll().first(where: { $0.machineName == machineName} )
     }
@@ -13,6 +13,7 @@ struct OffersStorage: Repository {
     func findAll() -> [Offer] {
         var result = [Offer]()
         
+        // Generate offers
         for i in 1...30 {
             result.append(ContentGenerator.makeOffer(id: i))
         }

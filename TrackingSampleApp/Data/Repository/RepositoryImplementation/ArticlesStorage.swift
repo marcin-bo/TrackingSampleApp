@@ -1,11 +1,11 @@
 //
-//  ArticlesInMemoryStorage.swift
+//  ArticlesStorage.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 26/11/2021.
 //
 
-struct ArticlesStorage: Repository {
+struct ArticlesStorage: ArticlesRepository {
     func findFirst(machineName: String) -> Article? {
         findAll().first(where: { $0.machineName == machineName} )
     }

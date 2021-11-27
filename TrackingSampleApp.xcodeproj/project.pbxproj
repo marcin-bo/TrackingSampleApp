@@ -11,6 +11,10 @@
 		5A18B77A275267590053AC19 /* ContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B779275267590053AC19 /* ContentGenerator.swift */; };
 		5A18B79E27526DDD0053AC19 /* OfferListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B79D27526DDD0053AC19 /* OfferListViewModel.swift */; };
 		5A18B7A327526DE90053AC19 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B7A227526DE90053AC19 /* ArticleListViewModel.swift */; };
+		5A18B7B727529B800053AC19 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B7B627529B800053AC19 /* ArticlesRepository.swift */; };
+		5A18B7BC27529B900053AC19 /* OffersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B7BB27529B900053AC19 /* OffersRepository.swift */; };
+		5A18B7C127529B9C0053AC19 /* NativeAdsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B7C027529B9C0053AC19 /* NativeAdsRepository.swift */; };
+		5A18B7CC2752A00B0053AC19 /* FeedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B7CB2752A00B0053AC19 /* FeedRepository.swift */; };
 		5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC10274E807F00B7B197 /* MainTabBarController.swift */; };
 		5A30AC16274E814900B7B197 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC15274E814900B7B197 /* FeedViewController.swift */; };
 		5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC1A274E817800B7B197 /* ArticleListViewController.swift */; };
@@ -30,11 +34,10 @@
 		5AEA098F2751989B00F7D216 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA098E2751989B00F7D216 /* Article.swift */; };
 		5AEA0997275198B300F7D216 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA0996275198B300F7D216 /* Offer.swift */; };
 		5AEA099C275198CA00F7D216 /* NativeAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA099B275198CA00F7D216 /* NativeAd.swift */; };
-		5AEA09A627519A6100F7D216 /* ArticlesInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09A527519A6100F7D216 /* ArticlesInMemoryStorage.swift */; };
-		5AEA09CD2751A8FD00F7D216 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09CC2751A8FD00F7D216 /* Repository.swift */; };
-		5AEA09E32751AA2200F7D216 /* OffersInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09E22751AA2200F7D216 /* OffersInMemoryStorage.swift */; };
-		5AEA09E82751AAC400F7D216 /* NativeAdsInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09E72751AAC400F7D216 /* NativeAdsInMemoryStorage.swift */; };
-		5AEA09F72751ADB100F7D216 /* FeedInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09F62751ADB100F7D216 /* FeedInMemoryStorage.swift */; };
+		5AEA09A627519A6100F7D216 /* ArticlesStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09A527519A6100F7D216 /* ArticlesStorage.swift */; };
+		5AEA09E32751AA2200F7D216 /* OffersStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09E22751AA2200F7D216 /* OffersStorage.swift */; };
+		5AEA09E82751AAC400F7D216 /* NativeAdsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09E72751AAC400F7D216 /* NativeAdsStorage.swift */; };
+		5AEA09F72751ADB100F7D216 /* FeedStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09F62751ADB100F7D216 /* FeedStorage.swift */; };
 		5AEA0A1C2751BDB500F7D216 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA0A1B2751BDB500F7D216 /* FeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +63,10 @@
 		5A18B779275267590053AC19 /* ContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentGenerator.swift; sourceTree = "<group>"; };
 		5A18B79D27526DDD0053AC19 /* OfferListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferListViewModel.swift; sourceTree = "<group>"; };
 		5A18B7A227526DE90053AC19 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
+		5A18B7B627529B800053AC19 /* ArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepository.swift; sourceTree = "<group>"; };
+		5A18B7BB27529B900053AC19 /* OffersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersRepository.swift; sourceTree = "<group>"; };
+		5A18B7C027529B9C0053AC19 /* NativeAdsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdsRepository.swift; sourceTree = "<group>"; };
+		5A18B7CB2752A00B0053AC19 /* FeedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedRepository.swift; sourceTree = "<group>"; };
 		5A30AC10274E807F00B7B197 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5A30AC15274E814900B7B197 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		5A30AC1A274E817800B7B197 /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
@@ -85,11 +92,10 @@
 		5AEA098E2751989B00F7D216 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		5AEA0996275198B300F7D216 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
 		5AEA099B275198CA00F7D216 /* NativeAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAd.swift; sourceTree = "<group>"; };
-		5AEA09A527519A6100F7D216 /* ArticlesInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesInMemoryStorage.swift; sourceTree = "<group>"; };
-		5AEA09CC2751A8FD00F7D216 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		5AEA09E22751AA2200F7D216 /* OffersInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersInMemoryStorage.swift; sourceTree = "<group>"; };
-		5AEA09E72751AAC400F7D216 /* NativeAdsInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdsInMemoryStorage.swift; sourceTree = "<group>"; };
-		5AEA09F62751ADB100F7D216 /* FeedInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInMemoryStorage.swift; sourceTree = "<group>"; };
+		5AEA09A527519A6100F7D216 /* ArticlesStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesStorage.swift; sourceTree = "<group>"; };
+		5AEA09E22751AA2200F7D216 /* OffersStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersStorage.swift; sourceTree = "<group>"; };
+		5AEA09E72751AAC400F7D216 /* NativeAdsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdsStorage.swift; sourceTree = "<group>"; };
+		5AEA09F62751ADB100F7D216 /* FeedStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedStorage.swift; sourceTree = "<group>"; };
 		5AEA0A1B2751BDB500F7D216 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -284,10 +290,10 @@
 		5AEA09D52751A92C00F7D216 /* RepositoryImplementation */ = {
 			isa = PBXGroup;
 			children = (
-				5AEA09A527519A6100F7D216 /* ArticlesInMemoryStorage.swift */,
-				5AEA09F62751ADB100F7D216 /* FeedInMemoryStorage.swift */,
-				5AEA09E72751AAC400F7D216 /* NativeAdsInMemoryStorage.swift */,
-				5AEA09E22751AA2200F7D216 /* OffersInMemoryStorage.swift */,
+				5AEA09A527519A6100F7D216 /* ArticlesStorage.swift */,
+				5AEA09F62751ADB100F7D216 /* FeedStorage.swift */,
+				5AEA09E72751AAC400F7D216 /* NativeAdsStorage.swift */,
+				5AEA09E22751AA2200F7D216 /* OffersStorage.swift */,
 				5A18B7782752674C0053AC19 /* Helper */,
 				5A18B76F2752671A0053AC19 /* Extensions */,
 			);
@@ -297,7 +303,10 @@
 		5AEA09F22751AAEC00F7D216 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				5AEA09CC2751A8FD00F7D216 /* Repository.swift */,
+				5A18B7B627529B800053AC19 /* ArticlesRepository.swift */,
+				5A18B7CB2752A00B0053AC19 /* FeedRepository.swift */,
+				5A18B7C027529B9C0053AC19 /* NativeAdsRepository.swift */,
+				5A18B7BB27529B900053AC19 /* OffersRepository.swift */,
 				5AEA09D52751A92C00F7D216 /* RepositoryImplementation */,
 			);
 			path = Repository;
@@ -432,10 +441,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AEA09E32751AA2200F7D216 /* OffersInMemoryStorage.swift in Sources */,
-				5AEA09F72751ADB100F7D216 /* FeedInMemoryStorage.swift in Sources */,
+				5A18B7B727529B800053AC19 /* ArticlesRepository.swift in Sources */,
+				5AEA09E32751AA2200F7D216 /* OffersStorage.swift in Sources */,
+				5AEA09F72751ADB100F7D216 /* FeedStorage.swift in Sources */,
 				5A18B77A275267590053AC19 /* ContentGenerator.swift in Sources */,
-				5AEA09CD2751A8FD00F7D216 /* Repository.swift in Sources */,
 				5AEA0997275198B300F7D216 /* Offer.swift in Sources */,
 				5AEA098F2751989B00F7D216 /* Article.swift in Sources */,
 				5A30AC2F274EE01400B7B197 /* Coordinator.swift in Sources */,
@@ -445,11 +454,14 @@
 				5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */,
 				5A7BAB1F274FFA7C006BFDE7 /* WidgetViewCell.swift in Sources */,
 				5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */,
+				5A18B7CC2752A00B0053AC19 /* FeedRepository.swift in Sources */,
 				5A18B771275267300053AC19 /* String+Extensions.swift in Sources */,
+				5A18B7C127529B9C0053AC19 /* NativeAdsRepository.swift in Sources */,
+				5A18B7BC27529B900053AC19 /* OffersRepository.swift in Sources */,
 				5A30AC5D274EF47700B7B197 /* OfferListCoordinator.swift in Sources */,
-				5AEA09E82751AAC400F7D216 /* NativeAdsInMemoryStorage.swift in Sources */,
+				5AEA09E82751AAC400F7D216 /* NativeAdsStorage.swift in Sources */,
 				5AEA0A1C2751BDB500F7D216 /* FeedViewModel.swift in Sources */,
-				5AEA09A627519A6100F7D216 /* ArticlesInMemoryStorage.swift in Sources */,
+				5AEA09A627519A6100F7D216 /* ArticlesStorage.swift in Sources */,
 				5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */,
 				5AEA099C275198CA00F7D216 /* NativeAd.swift in Sources */,
 				5A30AC50274EF40900B7B197 /* FeedCoordinator.swift in Sources */,
