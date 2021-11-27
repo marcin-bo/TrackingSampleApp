@@ -8,8 +8,8 @@
 struct FeedViewModel {
     private let widgets: [Widget]
     
-    init(widgets: [Widget]) {
-        self.widgets = widgets
+    init(feedInMemoryStorage: FeedInMemoryStorage) {
+        self.widgets = feedInMemoryStorage.findAll()
     }
     
     func count() -> Int {

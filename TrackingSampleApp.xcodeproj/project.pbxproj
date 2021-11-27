@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A18B771275267300053AC19 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B770275267300053AC19 /* String+Extensions.swift */; };
+		5A18B77A275267590053AC19 /* TextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B779275267590053AC19 /* TextGenerator.swift */; };
 		5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC10274E807F00B7B197 /* MainTabBarController.swift */; };
 		5A30AC16274E814900B7B197 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC15274E814900B7B197 /* FeedViewController.swift */; };
 		5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC1A274E817800B7B197 /* ArticleListViewController.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A18B770275267300053AC19 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		5A18B779275267590053AC19 /* TextGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGenerator.swift; sourceTree = "<group>"; };
 		5A30AC10274E807F00B7B197 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5A30AC15274E814900B7B197 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		5A30AC1A274E817800B7B197 /* ArticleListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +114,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A18B76F2752671A0053AC19 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5A18B770275267300053AC19 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5A18B7782752674C0053AC19 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				5A18B779275267590053AC19 /* TextGenerator.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		5A30AC2D274EDFFE00B7B197 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +282,8 @@
 				5AEA09F62751ADB100F7D216 /* FeedInMemoryStorage.swift */,
 				5AEA09E72751AAC400F7D216 /* NativeAdsInMemoryStorage.swift */,
 				5AEA09E22751AA2200F7D216 /* OffersInMemoryStorage.swift */,
+				5A18B7782752674C0053AC19 /* Helper */,
+				5A18B76F2752671A0053AC19 /* Extensions */,
 			);
 			path = RepositoryImplementation;
 			sourceTree = "<group>";
@@ -406,6 +428,7 @@
 			files = (
 				5AEA09E32751AA2200F7D216 /* OffersInMemoryStorage.swift in Sources */,
 				5AEA09F72751ADB100F7D216 /* FeedInMemoryStorage.swift in Sources */,
+				5A18B77A275267590053AC19 /* TextGenerator.swift in Sources */,
 				5AEA09CD2751A8FD00F7D216 /* Repository.swift in Sources */,
 				5AEA0997275198B300F7D216 /* Offer.swift in Sources */,
 				5AEA098F2751989B00F7D216 /* Article.swift in Sources */,
@@ -416,6 +439,7 @@
 				5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */,
 				5A7BAB1F274FFA7C006BFDE7 /* TableViewCell.swift in Sources */,
 				5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */,
+				5A18B771275267300053AC19 /* String+Extensions.swift in Sources */,
 				5A30AC5D274EF47700B7B197 /* OfferListCoordinator.swift in Sources */,
 				5AEA09E82751AAC400F7D216 /* NativeAdsInMemoryStorage.swift in Sources */,
 				5AEA0A1C2751BDB500F7D216 /* FeedViewModel.swift in Sources */,
