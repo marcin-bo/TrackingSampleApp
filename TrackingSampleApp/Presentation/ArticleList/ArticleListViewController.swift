@@ -26,7 +26,7 @@ final class ArticleListViewController: UIViewController {
         setupTableView()
     }
 
-    func setupTableView() {
+    private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
