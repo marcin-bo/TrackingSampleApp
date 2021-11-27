@@ -16,22 +16,7 @@ struct NativeAdsInMemoryStorage: Repository {
         var result = [NativeAd]()
         
         for i in 1...30 {
-            let title = TextGenerator.nativeAdTitle(id: i)
-            let machineName = title.machineName
-            let subtitle = TextGenerator.subtitle(id: i)
-            let text = TextGenerator.text(id: i)
-            let widgets = [Widget]()
-            
-            let entity = NativeAd(
-                machineName: machineName,
-                title: title,
-                subtitle: subtitle,
-                description: text,
-                imageFilename: "native-ad.png",
-                url: URL(string: "https://google.com")!,
-                widgets: widgets
-            )
-            result.append(entity)
+            result.append(TextGenerator.makeNativeAd(id: i))
         }
         
         return result

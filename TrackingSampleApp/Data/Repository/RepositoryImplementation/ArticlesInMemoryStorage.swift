@@ -14,21 +14,7 @@ struct ArticlesInMemoryStorage: Repository {
         var result = [Article]()
         
         for i in 1...30 {
-            let title = TextGenerator.articleTitle(id: i)
-            let machineName = title.machineName
-            let subtitle = TextGenerator.subtitle(id: i)
-            let text = TextGenerator.text(id: i)
-            let widgets = [Widget]()
-            
-            let entity = Article(
-                machineName: machineName,
-                title: title,
-                subtitle: subtitle,
-                content: text,
-                imageFilename: "article.png",
-                widgets: widgets
-            )
-            result.append(entity)
+            result.append(TextGenerator.makeArticle(id: i))
         }
         
         return result

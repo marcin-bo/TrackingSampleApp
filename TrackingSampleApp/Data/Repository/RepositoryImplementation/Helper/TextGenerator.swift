@@ -5,21 +5,75 @@
 //  Created by Marcin Borek on 27/11/2021.
 //
 
+import Foundation
+
 /// Helper used to create text for models
 struct TextGenerator {
-    static func articleTitle(id: Int) -> String {
+    
+    static func makeArticle(id: Int) -> Article {
+        let title = TextGenerator.articleTitle(id: id)
+        let machineName = title.machineName
+        let subtitle = TextGenerator.subtitle(id: id)
+        let text = TextGenerator.text(id: id)
+        let widgets = [Widget]()
+        
+        return Article(
+            machineName: machineName,
+            title: title,
+            subtitle: subtitle,
+            content: text,
+            imageFilename: "article.png",
+            widgets: widgets
+        )
+    }
+    
+    static func makeOffer(id: Int) -> Offer {
+        let title = TextGenerator.offerTitle(id: id)
+        let machineName = title.machineName
+        let subtitle = TextGenerator.subtitle(id: id)
+        let text = TextGenerator.text(id: id)
+        
+        return Offer(
+            machineName: machineName,
+            title: title,
+            subtitle: subtitle,
+            description: text,
+            imageFilename: "offer.png",
+            price: Float(id*10 + id*5)
+        )
+    }
+    
+    static func makeNativeAd(id: Int) -> NativeAd {
+        let title = TextGenerator.nativeAdTitle(id: id)
+        let machineName = title.machineName
+        let subtitle = TextGenerator.subtitle(id: id)
+        let text = TextGenerator.text(id: id)
+        let widgets = [Widget]()
+        
+        return NativeAd(
+            machineName: machineName,
+            title: title,
+            subtitle: subtitle,
+            description: text,
+            imageFilename: "native-ad.png",
+            url: URL(string: "https://google.com")!,
+            widgets: widgets
+        )
+    }
+    
+    private static func articleTitle(id: Int) -> String {
         "Article \(id)"
     }
     
-    static func offerTitle(id: Int) -> String {
+    private static func offerTitle(id: Int) -> String {
         "Offer \(id)"
     }
     
-    static func nativeAdTitle(id: Int) -> String {
+    private static func nativeAdTitle(id: Int) -> String {
         "Native Ad \(id)"
     }
     
-    static func subtitle(id: Int) -> String {
+    private static func subtitle(id: Int) -> String {
         if id % 9 == 1 {
             return "Mauris dictum elit et metus vehicula varius."
         } else if id % 9 == 2 {
@@ -39,7 +93,7 @@ struct TextGenerator {
         }
     }
     
-    static func text(id: Int) -> String {
+    private static func text(id: Int) -> String {
         if id  % 9 == 1 {
             return "Maecenas scelerisque egestas ante, ac imperdiet enim sodales vitae. Morbi semper, orci ac tempus lobortis, augue mi elementum turpis, nec pellentesque libero tellus eget leo. Vestibulum pulvinar, nisi ac sollicitudin porta, velit arcu vulputate ligula, in efficitur nibh quam quis enim."
         } else if id  % 9 == 2 {
