@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A18B771275267300053AC19 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B770275267300053AC19 /* String+Extensions.swift */; };
-		5A18B77A275267590053AC19 /* TextGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B779275267590053AC19 /* TextGenerator.swift */; };
+		5A18B77A275267590053AC19 /* ContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B779275267590053AC19 /* ContentGenerator.swift */; };
 		5A18B79E27526DDD0053AC19 /* OfferListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B79D27526DDD0053AC19 /* OfferListViewModel.swift */; };
 		5A18B7A327526DE90053AC19 /* ArticleListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A18B7A227526DE90053AC19 /* ArticleListViewModel.swift */; };
 		5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A30AC10274E807F00B7B197 /* MainTabBarController.swift */; };
@@ -57,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		5A18B770275267300053AC19 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		5A18B779275267590053AC19 /* TextGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextGenerator.swift; sourceTree = "<group>"; };
+		5A18B779275267590053AC19 /* ContentGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentGenerator.swift; sourceTree = "<group>"; };
 		5A18B79D27526DDD0053AC19 /* OfferListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferListViewModel.swift; sourceTree = "<group>"; };
 		5A18B7A227526DE90053AC19 /* ArticleListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleListViewModel.swift; sourceTree = "<group>"; };
 		5A30AC10274E807F00B7B197 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 		5A18B7782752674C0053AC19 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				5A18B779275267590053AC19 /* TextGenerator.swift */,
+				5A18B779275267590053AC19 /* ContentGenerator.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -434,7 +434,7 @@
 			files = (
 				5AEA09E32751AA2200F7D216 /* OffersInMemoryStorage.swift in Sources */,
 				5AEA09F72751ADB100F7D216 /* FeedInMemoryStorage.swift in Sources */,
-				5A18B77A275267590053AC19 /* TextGenerator.swift in Sources */,
+				5A18B77A275267590053AC19 /* ContentGenerator.swift in Sources */,
 				5AEA09CD2751A8FD00F7D216 /* Repository.swift in Sources */,
 				5AEA0997275198B300F7D216 /* Offer.swift in Sources */,
 				5AEA098F2751989B00F7D216 /* Article.swift in Sources */,

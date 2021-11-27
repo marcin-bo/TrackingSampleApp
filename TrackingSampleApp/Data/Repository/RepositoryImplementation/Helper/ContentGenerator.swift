@@ -1,5 +1,5 @@
 //
-//  TextGenerator.swift
+//  ContentGenerator.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 27/11/2021.
@@ -8,13 +8,13 @@
 import Foundation
 
 /// Helper used to create text for models
-struct TextGenerator {
+struct ContentGenerator {
     
     static func makeArticle(id: Int) -> Article {
-        let title = TextGenerator.articleTitle(id: id)
+        let title = ContentGenerator.articleTitle(id: id)
         let machineName = title.machineName
-        let subtitle = TextGenerator.subtitle(id: id)
-        let text = TextGenerator.text(id: id)
+        let subtitle = ContentGenerator.subtitle(id: id)
+        let text = ContentGenerator.text(id: id)
         let widgets: [Widget] = [
             makeNativeAd(id: id),
             makeOffer(id: id),
@@ -32,10 +32,10 @@ struct TextGenerator {
     }
     
     static func makeOffer(id: Int) -> Offer {
-        let title = TextGenerator.offerTitle(id: id)
+        let title = ContentGenerator.offerTitle(id: id)
         let machineName = title.machineName
-        let subtitle = TextGenerator.subtitle(id: id)
-        let text = TextGenerator.text(id: id)
+        let subtitle = ContentGenerator.subtitle(id: id)
+        let text = ContentGenerator.text(id: id)
         
         return Offer(
             machineName: machineName,
@@ -48,10 +48,10 @@ struct TextGenerator {
     }
     
     static func makeNativeAd(id: Int) -> NativeAd {
-        let title = TextGenerator.nativeAdTitle(id: id)
+        let title = ContentGenerator.nativeAdTitle(id: id)
         let machineName = title.machineName
-        let subtitle = TextGenerator.subtitle(id: id)
-        let text = TextGenerator.text(id: id)
+        let subtitle = ContentGenerator.subtitle(id: id)
+        let text = ContentGenerator.text(id: id)
         let widgets: [Widget] = [
             makeOffer(id: id),
             makeOffer(id: id+1),

@@ -14,7 +14,7 @@ struct OffersInMemoryStorage: Repository {
         var result = [Offer]()
         
         for i in 1...30 {
-            result.append(TextGenerator.makeOffer(id: i))
+            result.append(ContentGenerator.makeOffer(id: i))
         }
         
         return result

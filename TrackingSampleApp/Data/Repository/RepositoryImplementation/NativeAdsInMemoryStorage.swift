@@ -16,7 +16,7 @@ struct NativeAdsInMemoryStorage: Repository {
         var result = [NativeAd]()
         
         for i in 1...30 {
-            result.append(TextGenerator.makeNativeAd(id: i))
+            result.append(ContentGenerator.makeNativeAd(id: i))
         }
         
         return result

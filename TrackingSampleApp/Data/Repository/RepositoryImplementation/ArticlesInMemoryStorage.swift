@@ -14,7 +14,7 @@ struct ArticlesInMemoryStorage: Repository {
         var result = [Article]()
         
         for i in 1...30 {
-            result.append(TextGenerator.makeArticle(id: i))
+            result.append(ContentGenerator.makeArticle(id: i))
         }
         
         return result
