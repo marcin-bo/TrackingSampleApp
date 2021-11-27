@@ -9,8 +9,11 @@ import UIKit
 
 final class HomeViewController: UITableViewController {
     private let widgets: [Widget] = {
-        var widgets = [Widget]()
-        return widgets
+        FeedInMemoryStorage(
+            articleStorage: ArticlesInMemoryStorage(),
+            nativeAdsStorage: NativeAdsInMemoryStorage(),
+            offersStorage: OffersInMemoryStorage())
+            .findAll()
     }()
     
     override func viewDidLoad() {

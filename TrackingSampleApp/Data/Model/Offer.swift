@@ -9,8 +9,8 @@ struct Offer {
     let machineName: String
     let title: String
     let subtitle: String
-    let imageFilename: String
     let description: String
+    let imageFilename: String
     let price: Float
 }
 
