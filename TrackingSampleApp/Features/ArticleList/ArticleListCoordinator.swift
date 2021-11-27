@@ -17,7 +17,11 @@ final class ArticleListCoordinator: Coordinator {
     private var navigationController: UINavigationController
 
     init() {
-        self.navigationController = UINavigationController(rootViewController: ArticleListViewController())
+        let articlesStorage = ArticlesInMemoryStorage()
+        let viewModel = ArticleListViewModel(articlesStorage: articlesStorage)
+        self.navigationController = UINavigationController(
+            rootViewController: ArticleListViewController(viewModel: viewModel)
+        )
         self.childCoordinators = [Coordinator]()
     }
 

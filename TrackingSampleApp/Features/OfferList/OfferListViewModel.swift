@@ -1,15 +1,15 @@
 //
-//  FeedViewModel.swift
+//  OfferListViewModel.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 27/11/2021.
 //
 
-struct FeedViewModel {
+struct OfferListViewModel {
     private let widgets: [Widget]
     
-    init(feedStorage: FeedInMemoryStorage) {
-        self.widgets = feedStorage.findAll()
+    init(offersStorage: OffersInMemoryStorage) {
+        self.widgets = offersStorage.findAll()
     }
     
     func count() -> Int {
@@ -21,3 +21,4 @@ struct FeedViewModel {
         return widgets[index]
     }
 }
+

@@ -17,15 +17,15 @@ final class FeedCoordinator: Coordinator {
     private var navigationController: UINavigationController
 
     init() {
-        let feedInMemoryStorage = FeedInMemoryStorage(
+        let feedStorage = FeedInMemoryStorage(
             articleStorage: ArticlesInMemoryStorage(),
             nativeAdsStorage: NativeAdsInMemoryStorage(),
             offersStorage: OffersInMemoryStorage()
         )
-        let feedViewModel = FeedViewModel(feedInMemoryStorage: feedInMemoryStorage)
+        let viewModel = FeedViewModel(feedStorage: feedStorage)
         
         self.navigationController = UINavigationController(
-            rootViewController: FeedViewController(viewModel: feedViewModel)
+            rootViewController: FeedViewController(viewModel: viewModel)
         )
         self.childCoordinators = [Coordinator]()
     }
