@@ -31,6 +31,7 @@
 		5AEA09E32751AA2200F7D216 /* OffersInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09E22751AA2200F7D216 /* OffersInMemoryStorage.swift */; };
 		5AEA09E82751AAC400F7D216 /* NativeAdsInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09E72751AAC400F7D216 /* NativeAdsInMemoryStorage.swift */; };
 		5AEA09F72751ADB100F7D216 /* FeedInMemoryStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA09F62751ADB100F7D216 /* FeedInMemoryStorage.swift */; };
+		5AEA0A1C2751BDB500F7D216 /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA0A1B2751BDB500F7D216 /* FeedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		5AEA09E22751AA2200F7D216 /* OffersInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffersInMemoryStorage.swift; sourceTree = "<group>"; };
 		5AEA09E72751AAC400F7D216 /* NativeAdsInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdsInMemoryStorage.swift; sourceTree = "<group>"; };
 		5AEA09F62751ADB100F7D216 /* FeedInMemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedInMemoryStorage.swift; sourceTree = "<group>"; };
+		5AEA0A1B2751BDB500F7D216 /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			children = (
 				5A30AC4F274EF40900B7B197 /* FeedCoordinator.swift */,
 				5A30AC15274E814900B7B197 /* FeedViewController.swift */,
+				5AEA0A1B2751BDB500F7D216 /* FeedViewModel.swift */,
 				5A7BAB1D274FF98F006BFDE7 /* Views */,
 			);
 			path = Feed;
@@ -415,6 +418,7 @@
 				5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */,
 				5A30AC5D274EF47700B7B197 /* OfferListCoordinator.swift in Sources */,
 				5AEA09E82751AAC400F7D216 /* NativeAdsInMemoryStorage.swift in Sources */,
+				5AEA0A1C2751BDB500F7D216 /* FeedViewModel.swift in Sources */,
 				5AEA09A627519A6100F7D216 /* ArticlesInMemoryStorage.swift in Sources */,
 				5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */,
 				5AEA099C275198CA00F7D216 /* NativeAd.swift in Sources */,

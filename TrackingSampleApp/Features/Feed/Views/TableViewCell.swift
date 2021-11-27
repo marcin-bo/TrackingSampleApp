@@ -25,4 +25,11 @@ final class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func update(widget: Widget) {
+        imageView?.image = UIImage(named: widget.imageFilename)
+        textLabel?.text = widget.title
+        detailTextLabel?.numberOfLines = 0
+        detailTextLabel?.text = widget.subtitle
+    }
 }

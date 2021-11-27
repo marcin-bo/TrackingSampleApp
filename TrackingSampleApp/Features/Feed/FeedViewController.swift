@@ -8,13 +8,17 @@
 import UIKit
 
 final class FeedViewController: UITableViewController {
-    private let widgets: [Widget] = {
-        FeedInMemoryStorage(
-            articleStorage: ArticlesInMemoryStorage(),
-            nativeAdsStorage: NativeAdsInMemoryStorage(),
-            offersStorage: OffersInMemoryStorage())
-            .findAll()
-    }()
+    private let viewModel: FeedViewModel
+    
+    init(viewModel: FeedViewModel) {
+        self.viewModel = viewModel
+        super.init(style: .plain)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,11 +39,11 @@ final class FeedViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return widgets.count
+        return viewModel.count()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = {
+        let cell: TableViewCell = {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: ReuseIdentifier.tableCell,
                 for: indexPath as IndexPath
@@ -47,18 +51,14 @@ final class FeedViewController: UITableViewController {
             if cell != nil {
                 return cell!
             }
-            return UITableViewCell(
+            return TableViewCell(
                 style: UITableViewCell.CellStyle.subtitle,
                 reuseIdentifier: ReuseIdentifier.tableCell
             )
         }()
         
-        if indexPath.row < widgets.count {
-            let widget = widgets[indexPath.row]
-            cell.imageView?.image = UIImage(named: widget.imageFilename)
-            cell.textLabel?.text = widget.title
-            cell.detailTextLabel?.numberOfLines = 0
-            cell.detailTextLabel?.text = widget.subtitle
+        if let widget = viewModel.getItemAt(index: indexPath.row) {
+            cell.update(widget: widget)
         }
         
         return cell
