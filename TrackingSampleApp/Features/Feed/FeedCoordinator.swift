@@ -1,5 +1,5 @@
 //
-//  HomeCoordinator.swift
+//  FeedCoordinator.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 24/11/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeCoordinator: Coordinator {
+final class FeedCoordinator: Coordinator {
     var childCoordinators: [Coordinator]
     
     var rootViewController: UIViewController {
@@ -17,7 +17,9 @@ final class HomeCoordinator: Coordinator {
     private var navigationController: UINavigationController
 
     init() {
-        self.navigationController = UINavigationController(rootViewController: HomeViewController())
+        self.navigationController = UINavigationController(
+            rootViewController: FeedViewController()
+        )
         self.childCoordinators = [Coordinator]()
     }
 

@@ -19,14 +19,14 @@ final class AppFlowCoordinator: Coordinator {
     init() {
         self.tabBarController = MainTabBarController()
         
-        let homeCoordinator = HomeCoordinator()
+        let feedCoordinator = FeedCoordinator()
         let articleListCoordinator = ArticleListCoordinator()
         let offerListCoordinator = OfferListCoordinator()
         
-        let tab1 = homeCoordinator.rootViewController
+        let tab1 = feedCoordinator.rootViewController
         tab1.tabBarItem = UITabBarItem(
-            title: "Home",
-            image: UIImage(named: "home.png"),
+            title: "Feed",
+            image: UIImage(named: "feed.png"),
             selectedImage: nil
         )
         
@@ -45,7 +45,7 @@ final class AppFlowCoordinator: Coordinator {
         )
         tabBarController.viewControllers = [tab1, tab2, tab3]
         
-        childCoordinators = [homeCoordinator, articleListCoordinator, offerListCoordinator]
+        childCoordinators = [feedCoordinator, articleListCoordinator, offerListCoordinator]
     }
 
     func start() {

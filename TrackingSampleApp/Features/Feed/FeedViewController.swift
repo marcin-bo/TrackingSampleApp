@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  FeedViewController.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 24/11/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViewController: UITableViewController {
+final class FeedViewController: UITableViewController {
     private let widgets: [Widget] = {
         FeedInMemoryStorage(
             articleStorage: ArticlesInMemoryStorage(),
@@ -18,7 +18,7 @@ final class HomeViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
+        title = "Feed"
         view.backgroundColor = .green
         setupTableView()
     }
@@ -65,7 +65,7 @@ final class HomeViewController: UITableViewController {
     }
 }
 
-extension HomeViewController {
+extension FeedViewController {
     private enum ReuseIdentifier {
         static let tableCell = "tableCell"
     }
