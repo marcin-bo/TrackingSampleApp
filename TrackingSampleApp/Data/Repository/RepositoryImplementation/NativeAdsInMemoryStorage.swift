@@ -15,7 +15,7 @@ struct NativeAdsInMemoryStorage: Repository {
     func findAll() -> [NativeAd] {
         var result = [NativeAd]()
         
-        for i in 1...8 {
+        for i in 1...30 {
             let title = TextGenerator.nativeAdTitle(id: i)
             let machineName = title.machineName
             let subtitle = TextGenerator.subtitle(id: i)

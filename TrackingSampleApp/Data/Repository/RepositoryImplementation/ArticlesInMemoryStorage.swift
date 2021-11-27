@@ -13,7 +13,7 @@ struct ArticlesInMemoryStorage: Repository {
     func findAll() -> [Article] {
         var result = [Article]()
         
-        for i in 1...8 {
+        for i in 1...30 {
             let title = TextGenerator.articleTitle(id: i)
             let machineName = title.machineName
             let subtitle = TextGenerator.subtitle(id: i)

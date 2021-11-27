@@ -13,7 +13,7 @@ struct OffersInMemoryStorage: Repository {
     func findAll() -> [Offer] {
         var result = [Offer]()
         
-        for i in 1...8 {
+        for i in 1...30 {
             let title = TextGenerator.offerTitle(id: i)
             let machineName = title.machineName
             let subtitle = TextGenerator.subtitle(id: i)

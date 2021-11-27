@@ -24,62 +24,21 @@ struct FeedInMemoryStorage: Repository {
     
     func findAll() -> [Widget] {
         var widgets = [Widget]()
-        if let found = articleStorage.findFirst(machineName: "article-1") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-1") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-3") {
-            widgets.append(found)
-        }
-        if let found = nativeAdsStorage.findFirst(machineName: "native-ad-4") {
-            widgets.append(found)
-        }
-        if let found = articleStorage.findFirst(machineName: "article-3") {
-            widgets.append(found)
-        }
-        if let found = nativeAdsStorage.findFirst(machineName: "native-ad-1") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-4") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-6") {
-            widgets.append(found)
-        }
-        if let found = articleStorage.findFirst(machineName: "article-5") {
-            widgets.append(found)
-        }
-        if let found = nativeAdsStorage.findFirst(machineName: "native-ad-3") {
-            widgets.append(found)
-        }
-        if let found = articleStorage.findFirst(machineName: "article-4") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-2") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-6") {
-            widgets.append(found)
-        }
-        if let found = nativeAdsStorage.findFirst(machineName: "native-ad-5") {
-            widgets.append(found)
-        }
-        if let found = articleStorage.findFirst(machineName: "article-6") {
-            widgets.append(found)
-        }
-        if let found = nativeAdsStorage.findFirst(machineName: "native-ad-2") {
-            widgets.append(found)
-        }
-        if let found = articleStorage.findFirst(machineName: "article-2") {
-            widgets.append(found)
-        }
-        if let found = offersStorage.findFirst(machineName: "offer-5") {
-            widgets.append(found)
-        }
-        if let found = nativeAdsStorage.findFirst(machineName: "native-ad-6") {
-            widgets.append(found)
+        
+        for i in 1...30 {
+            if i % 3 == 0 {
+                if let found = articleStorage.findFirst(machineName: "article-\(i)") {
+                    widgets.append(found)
+                }
+            } else if i % 3 == 1 {
+                if let found = offersStorage.findFirst(machineName: "offer-\(i)") {
+                    widgets.append(found)
+                }
+            } else {
+                if let found = nativeAdsStorage.findFirst(machineName: "native-ad-\(i)") {
+                    widgets.append(found)
+                }
+            }
         }
         return widgets
     }
