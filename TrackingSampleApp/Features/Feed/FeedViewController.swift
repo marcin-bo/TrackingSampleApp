@@ -35,7 +35,7 @@ final class FeedViewController: UIViewController {
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
         tableView.register(
-            TableViewCell.self,
+            WidgetViewCell.self,
             forCellReuseIdentifier: ReuseIdentifier.tableCell
         )
         
@@ -62,15 +62,15 @@ extension FeedViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: TableViewCell = {
+        let cell: WidgetViewCell = {
             let cell = tableView.dequeueReusableCell(
                 withIdentifier: ReuseIdentifier.tableCell,
                 for: indexPath as IndexPath
-            ) as? TableViewCell
+            ) as? WidgetViewCell
             if cell != nil {
                 return cell!
             }
-            return TableViewCell(
+            return WidgetViewCell(
                 style: UITableViewCell.CellStyle.subtitle,
                 reuseIdentifier: ReuseIdentifier.tableCell
             )

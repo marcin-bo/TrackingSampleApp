@@ -1,5 +1,5 @@
 //
-//  TableViewCell.swift
+//  WidgetViewCell.swift
 //  TrackingSampleApp
 //
 //  Created by Marcin Borek on 25/11/2021.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class TableViewCell: UITableViewCell {
+final class WidgetViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
     }
