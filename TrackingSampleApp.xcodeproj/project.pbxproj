@@ -140,6 +140,34 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		5A18B7D62752AF0D0053AC19 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				5AEA098D2751988E00F7D216 /* Model */,
+				5A18B7D72752CCCA0053AC19 /* RepositoryInterface */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		5A18B7D72752CCCA0053AC19 /* RepositoryInterface */ = {
+			isa = PBXGroup;
+			children = (
+				5A18B7B627529B800053AC19 /* ArticlesRepository.swift */,
+				5A18B7CB2752A00B0053AC19 /* FeedRepository.swift */,
+				5A18B7C027529B9C0053AC19 /* NativeAdsRepository.swift */,
+				5A18B7BB27529B900053AC19 /* OffersRepository.swift */,
+			);
+			path = RepositoryInterface;
+			sourceTree = "<group>";
+		};
+		5A18B7DB2752CD680053AC19 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				5A30AC2D274EDFFE00B7B197 /* Coordinator */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
 		5A30AC2D274EDFFE00B7B197 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +176,7 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
-		5A7BAB0F274FF04B006BFDE7 /* Features */ = {
+		5A7BAB0F274FF04B006BFDE7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				5A7BAB13274FF1C1006BFDE7 /* MainTabBar */,
@@ -156,7 +184,7 @@
 				5A7BAB11274FF059006BFDE7 /* ArticleList */,
 				5A7BAB12274FF063006BFDE7 /* OfferList */,
 			);
-			path = Features;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 		5A7BAB10274FF053006BFDE7 /* Feed */ = {
@@ -230,9 +258,10 @@
 		5ADBBCDE274D969500BF096C /* TrackingSampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A18B7D62752AF0D0053AC19 /* Domain */,
 				5AEA09842751964C00F7D216 /* Data */,
-				5A7BAB0F274FF04B006BFDE7 /* Features */,
-				5A30AC2D274EDFFE00B7B197 /* Coordinator */,
+				5A7BAB0F274FF04B006BFDE7 /* Presentation */,
+				5A18B7DB2752CD680053AC19 /* Infrastructure */,
 				5ADBBCDF274D969500BF096C /* AppDelegate.swift */,
 				5ADBBCEA274D96A000BF096C /* LaunchScreen.storyboard */,
 				5ADBBCED274D96A000BF096C /* Info.plist */,
@@ -270,8 +299,7 @@
 		5AEA09842751964C00F7D216 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				5AEA09F22751AAEC00F7D216 /* Repository */,
-				5AEA098D2751988E00F7D216 /* Model */,
+				5AEA09D52751A92C00F7D216 /* RepositoryImplementation */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -298,18 +326,6 @@
 				5A18B76F2752671A0053AC19 /* Extensions */,
 			);
 			path = RepositoryImplementation;
-			sourceTree = "<group>";
-		};
-		5AEA09F22751AAEC00F7D216 /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-				5A18B7B627529B800053AC19 /* ArticlesRepository.swift */,
-				5A18B7CB2752A00B0053AC19 /* FeedRepository.swift */,
-				5A18B7C027529B9C0053AC19 /* NativeAdsRepository.swift */,
-				5A18B7BB27529B900053AC19 /* OffersRepository.swift */,
-				5AEA09D52751A92C00F7D216 /* RepositoryImplementation */,
-			);
-			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
