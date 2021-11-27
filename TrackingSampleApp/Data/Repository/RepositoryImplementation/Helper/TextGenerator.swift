@@ -15,7 +15,11 @@ struct TextGenerator {
         let machineName = title.machineName
         let subtitle = TextGenerator.subtitle(id: id)
         let text = TextGenerator.text(id: id)
-        let widgets = [Widget]()
+        let widgets: [Widget] = [
+            makeNativeAd(id: id),
+            makeOffer(id: id),
+            makeOffer(id: id+1)
+        ]
         
         return Article(
             machineName: machineName,
@@ -48,7 +52,11 @@ struct TextGenerator {
         let machineName = title.machineName
         let subtitle = TextGenerator.subtitle(id: id)
         let text = TextGenerator.text(id: id)
-        let widgets = [Widget]()
+        let widgets: [Widget] = [
+            makeOffer(id: id),
+            makeOffer(id: id+1),
+            makeOffer(id: id+2)
+        ]
         
         return NativeAd(
             machineName: machineName,
