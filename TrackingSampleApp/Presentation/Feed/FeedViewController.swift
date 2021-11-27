@@ -63,12 +63,10 @@ extension FeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: WidgetViewCell = {
-            let cell = tableView.dequeueReusableCell(
+            if let cell = tableView.dequeueReusableCell(
                 withIdentifier: ReuseIdentifier.tableCell,
-                for: indexPath as IndexPath
-            ) as? WidgetViewCell
-            if cell != nil {
-                return cell!
+                for: indexPath as IndexPath) as? WidgetViewCell {
+                return cell
             }
             return WidgetViewCell(
                 style: UITableViewCell.CellStyle.subtitle,
