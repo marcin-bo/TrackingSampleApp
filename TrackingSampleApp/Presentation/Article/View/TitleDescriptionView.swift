@@ -7,6 +7,8 @@
 
 import UIKit
 
+// FIXME: There are some constraints error when embeding this view
+// To debug them disable `_UIConstraintBasedLayoutLogUnsatisfiable` in the Run Scheme
 final class TitleDescriptionView: UIView {
     private let stackView = UIStackView()
     private let titleLabel = UILabel()
