@@ -31,6 +31,9 @@
 		5A68154D2753782C000B65B3 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68154C2753782C000B65B3 /* ArticleViewController.swift */; };
 		5A68155227537839000B65B3 /* ArticleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68155127537839000B65B3 /* ArticleViewModel.swift */; };
 		5A68155B2753CDD2000B65B3 /* TitleDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68155A2753CDD2000B65B3 /* TitleDescriptionView.swift */; };
+		5A68156A2753D330000B65B3 /* NativeAdCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815692753D330000B65B3 /* NativeAdCoordinator.swift */; };
+		5A6815722753D33B000B65B3 /* NativeAdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815712753D33B000B65B3 /* NativeAdViewController.swift */; };
+		5A6815772753D346000B65B3 /* NativeAdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815762753D346000B65B3 /* NativeAdViewModel.swift */; };
 		5A7BAB1F274FFA7C006BFDE7 /* WidgetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BAB1E274FFA7C006BFDE7 /* WidgetViewCell.swift */; };
 		5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBBCDF274D969500BF096C /* AppDelegate.swift */; };
 		5ADBBCE9274D96A000BF096C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADBBCE8274D96A000BF096C /* Assets.xcassets */; };
@@ -90,6 +93,9 @@
 		5A68154C2753782C000B65B3 /* ArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 		5A68155127537839000B65B3 /* ArticleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewModel.swift; sourceTree = "<group>"; };
 		5A68155A2753CDD2000B65B3 /* TitleDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleDescriptionView.swift; sourceTree = "<group>"; };
+		5A6815692753D330000B65B3 /* NativeAdCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdCoordinator.swift; sourceTree = "<group>"; };
+		5A6815712753D33B000B65B3 /* NativeAdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdViewController.swift; sourceTree = "<group>"; };
+		5A6815762753D346000B65B3 /* NativeAdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdViewModel.swift; sourceTree = "<group>"; };
 		5A7BAB1E274FFA7C006BFDE7 /* WidgetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewCell.swift; sourceTree = "<group>"; };
 		5ADBBCDC274D969500BF096C /* TrackingSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADBBCDF274D969500BF096C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +225,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5A6815682753D30E000B65B3 /* NativeAd */ = {
+			isa = PBXGroup;
+			children = (
+				5A6815692753D330000B65B3 /* NativeAdCoordinator.swift */,
+				5A6815712753D33B000B65B3 /* NativeAdViewController.swift */,
+				5A6815762753D346000B65B3 /* NativeAdViewModel.swift */,
+			);
+			path = NativeAd;
+			sourceTree = "<group>";
+		};
 		5A7BAB0F274FF04B006BFDE7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +243,7 @@
 				5A7BAB11274FF059006BFDE7 /* ArticleList */,
 				5A7BAB12274FF063006BFDE7 /* OfferList */,
 				5A6815432753778A000B65B3 /* Article */,
+				5A6815682753D30E000B65B3 /* NativeAd */,
 				5A18B7DF2752CEFF0053AC19 /* Offer */,
 			);
 			path = Presentation;
@@ -502,6 +519,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A68156A2753D330000B65B3 /* NativeAdCoordinator.swift in Sources */,
 				5A18B7B727529B800053AC19 /* ArticlesRepository.swift in Sources */,
 				5AEA09E32751AA2200F7D216 /* OffersStorage.swift in Sources */,
 				5AEA09F72751ADB100F7D216 /* FeedStorage.swift in Sources */,
@@ -530,8 +548,10 @@
 				5AEA099C275198CA00F7D216 /* NativeAd.swift in Sources */,
 				5A30AC50274EF40900B7B197 /* FeedCoordinator.swift in Sources */,
 				5A18B7E12752CF1C0053AC19 /* OfferCoordinator.swift in Sources */,
+				5A6815722753D33B000B65B3 /* NativeAdViewController.swift in Sources */,
 				5A68155227537839000B65B3 /* ArticleViewModel.swift in Sources */,
 				5A18B7E92752CF280053AC19 /* OfferViewController.swift in Sources */,
+				5A6815772753D346000B65B3 /* NativeAdViewModel.swift in Sources */,
 				5A6815452753781D000B65B3 /* ArticleCoordinator.swift in Sources */,
 				5A18B79E27526DDD0053AC19 /* OfferListViewModel.swift in Sources */,
 				5A30AC20274E818700B7B197 /* OfferListViewController.swift in Sources */,
