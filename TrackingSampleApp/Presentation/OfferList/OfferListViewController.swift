@@ -9,7 +9,9 @@ import UIKit
 
 final class OfferListViewController: UIViewController {
     private let viewModel: OfferListViewModel
+    
     private let tableView = UITableView(frame: .zero, style: .plain)
+    
     var didSelectOffer: ((String) -> Void)?
     
     init(viewModel: OfferListViewModel) {
@@ -22,32 +24,43 @@ final class OfferListViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "Offers"
+    }
+    
     override func loadView() {
         super.loadView()
+        setupSubviews()
+    }
+
+    private func setupSubviews() {
         setupTableView()
+        setupSubviewsHierarchy()
+        setupSubviewsConstraints()
     }
     
     private func setupTableView() {
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-        
         tableView.register(
             WidgetViewCell.self,
             forCellReuseIdentifier: WidgetViewCell.reuseIdentifier
         )
-        
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = "Offers"
-        setupTableView()
+    private func setupSubviewsHierarchy() {
+        view.addSubview(tableView)
+    }
+    
+    private func setupSubviewsConstraints() {
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.topAnchor),
+            tableView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.rightAnchor.constraint(equalTo: view.rightAnchor)
+        ])
     }
 }
 
