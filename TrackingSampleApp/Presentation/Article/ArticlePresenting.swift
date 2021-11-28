@@ -8,7 +8,9 @@
 import UIKit
 
 protocol ArticlePresenting: Coordinator {
+    var dependencies: RepositoryDependencies { get }
     var navigationController: UINavigationController { get }
+    
     func presentArticle(machineName: String)
 }
 
@@ -16,7 +18,8 @@ extension ArticlePresenting {
     func presentArticle(machineName: String) {
         let articleCoordinator = ArticleCoordinator(
             navigationController: navigationController,
-            machineName: machineName
+            machineName: machineName,
+            dependencies: dependencies
         )
         articleCoordinator.start()
         childCoordinators.append(articleCoordinator)

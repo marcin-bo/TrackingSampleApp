@@ -17,11 +17,15 @@ final class OfferCoordinator: Coordinator {
     private let navigationController: UINavigationController
     private let offerViewController: OfferViewController
 
-    init(navigationController: UINavigationController, machineName: String) {
+    init(
+        navigationController: UINavigationController,
+        machineName: String,
+        offersRepository: OffersRepository
+    ) {
         self.navigationController = navigationController
         self.offerViewController = OfferViewController(
             viewModel: OfferViewModel(
-                offersRepository: OffersStorage(),
+                offersRepository: offersRepository,
                 machineName: machineName
             )
         )

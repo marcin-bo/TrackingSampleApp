@@ -8,7 +8,9 @@
 import UIKit
 
 protocol NativeAdPresenting: Coordinator {
+    var dependencies: RepositoryDependencies { get }
     var navigationController: UINavigationController { get }
+    
     func presentNativeAd(machineName: String)
 }
 
@@ -16,7 +18,8 @@ extension NativeAdPresenting {
     func presentNativeAd(machineName: String) {
         let nativeAdCoordinator = NativeAdCoordinator(
             navigationController: navigationController,
-            machineName: machineName
+            machineName: machineName,
+            dependencies: dependencies
         )
         nativeAdCoordinator.start()
         childCoordinators.append(nativeAdCoordinator)

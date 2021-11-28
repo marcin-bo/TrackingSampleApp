@@ -8,6 +8,7 @@
 import UIKit
 
 final class NativeAdCoordinator: Coordinator {
+    let dependencies: RepositoryDependencies
     var childCoordinators: [Coordinator]
     
     var rootViewController: UIViewController {
@@ -17,11 +18,16 @@ final class NativeAdCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let nativeAdViewController: NativeAdViewController
 
-    init(navigationController: UINavigationController, machineName: String) {
+    init(
+        navigationController: UINavigationController,
+        machineName: String,
+        dependencies: RepositoryDependencies
+    ) {
+        self.dependencies = dependencies
         self.navigationController = navigationController
         self.nativeAdViewController = NativeAdViewController(
             viewModel: NativeAdViewModel(
-                nativeAdsRepository: NativeAdsStorage(),
+                nativeAdsRepository: dependencies.nativeAdsRepository,
                 machineName: machineName
             )
         )
@@ -44,4 +50,9 @@ final class NativeAdCoordinator: Coordinator {
 }
 
 extension NativeAdCoordinator: ArticlePresenting { }
-extension NativeAdCoordinator: OfferPresenting { }
+
+extension NativeAdCoordinator: OfferPresenting {
+    var offersRepository: OffersRepository {
+        dependencies.offersRepository
+    }
+}

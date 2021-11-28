@@ -8,6 +8,7 @@
 import UIKit
 
 final class ArticleListCoordinator: Coordinator {
+    let dependencies: RepositoryDependencies
     var childCoordinators: [Coordinator]
     
     var rootViewController: UIViewController {
@@ -17,8 +18,12 @@ final class ArticleListCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let articleListViewController: ArticleListViewController
 
-    init() {
-        let viewModel = ArticleListViewModel(articlesRepository: ArticlesStorage())
+    init(dependencies: RepositoryDependencies) {
+        self.dependencies = dependencies
+        
+        let viewModel = ArticleListViewModel(
+            articlesRepository: dependencies.articlesRepository
+        )
         self.articleListViewController = ArticleListViewController(viewModel: viewModel)
         self.navigationController = UINavigationController(
             rootViewController: articleListViewController

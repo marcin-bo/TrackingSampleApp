@@ -8,6 +8,7 @@
 import UIKit
 
 final class ArticleCoordinator: Coordinator {
+    let dependencies: RepositoryDependencies
     var childCoordinators: [Coordinator]
     
     var rootViewController: UIViewController {
@@ -17,11 +18,16 @@ final class ArticleCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let articleViewController: ArticleViewController
 
-    init(navigationController: UINavigationController, machineName: String) {
+    init(
+        navigationController: UINavigationController,
+        machineName: String,
+        dependencies: RepositoryDependencies
+    ) {
+        self.dependencies = dependencies
         self.navigationController = navigationController
         self.articleViewController = ArticleViewController(
             viewModel: ArticleViewModel(
-                articlesRepository: ArticlesStorage(),
+                articlesRepository: dependencies.articlesRepository,
                 machineName: machineName
             )
         )
@@ -47,5 +53,11 @@ final class ArticleCoordinator: Coordinator {
 }
 
 extension ArticleCoordinator: ArticlePresenting { }
+
 extension ArticleCoordinator: NativeAdPresenting { }
-extension ArticleCoordinator: OfferPresenting { }
+
+extension ArticleCoordinator: OfferPresenting {
+    var offersRepository: OffersRepository {
+        dependencies.offersRepository
+    }
+}

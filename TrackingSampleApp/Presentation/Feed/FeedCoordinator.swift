@@ -8,6 +8,8 @@
 import UIKit
 
 final class FeedCoordinator: Coordinator {
+    let dependencies: RepositoryDependencies
+    
     var childCoordinators: [Coordinator]
     
     var rootViewController: UIViewController {
@@ -17,19 +19,17 @@ final class FeedCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let feedViewController: FeedViewController
 
-    init() {
-        let feedStorage = FeedStorage(
-            articleRepository: ArticlesStorage(),
-            nativeAdsRepository: NativeAdsStorage(),
-            offersRepository: OffersStorage()
-        )
-        let viewModel = FeedViewModel(feedRepository: feedStorage)
+    init(dependencies: RepositoryDependencies) {
+        self.dependencies = dependencies
+        
+        let viewModel = FeedViewModel(feedRepository: dependencies.feedRepository)
         
         self.feedViewController = FeedViewController(viewModel: viewModel)
         self.navigationController = UINavigationController(
             rootViewController: feedViewController
         )
         self.childCoordinators = [Coordinator]()
+        
         setupHandlers()
     }
     
@@ -51,5 +51,11 @@ final class FeedCoordinator: Coordinator {
 }
 
 extension FeedCoordinator: ArticlePresenting { }
+
 extension FeedCoordinator: NativeAdPresenting { }
-extension FeedCoordinator: OfferPresenting { }
+
+extension FeedCoordinator: OfferPresenting {
+    var offersRepository: OffersRepository {
+        dependencies.offersRepository
+    }
+}

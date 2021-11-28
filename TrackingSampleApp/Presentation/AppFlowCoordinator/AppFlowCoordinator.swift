@@ -19,9 +19,25 @@ final class AppFlowCoordinator: Coordinator {
     init() {
         self.tabBarController = MainTabBarController()
         
-        let feedCoordinator = FeedCoordinator()
-        let articleListCoordinator = ArticleListCoordinator()
-        let offerListCoordinator = OfferListCoordinator()
+        let articlesRepository = ArticlesStorage()
+        let nativeAdsRepository = NativeAdsStorage()
+        let offersRepository = OffersStorage()
+        let feedRepository = FeedStorage(
+            articleRepository: articlesRepository,
+            nativeAdsRepository: nativeAdsRepository,
+            offersRepository: offersRepository
+        )
+        
+        let repositoryContainer = RepositoryContainer(
+            articlesRepository: articlesRepository,
+            feedRepository: feedRepository,
+            nativeAdsRepository: nativeAdsRepository,
+            offersRepository: offersRepository
+        )
+        
+        let feedCoordinator = FeedCoordinator(dependencies: repositoryContainer)
+        let articleListCoordinator = ArticleListCoordinator(dependencies: repositoryContainer)
+        let offerListCoordinator = OfferListCoordinator(offersRepository: offersRepository)
         
         let tab1 = feedCoordinator.rootViewController
         tab1.tabBarItem = UITabBarItem(

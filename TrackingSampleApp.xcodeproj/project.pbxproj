@@ -37,6 +37,12 @@
 		5A68157C2753DC3C000B65B3 /* OfferPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68157B2753DC3C000B65B3 /* OfferPresenting.swift */; };
 		5A6815812753DD94000B65B3 /* NativeAdPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815802753DD94000B65B3 /* NativeAdPresenting.swift */; };
 		5A6815892753DDE3000B65B3 /* ArticlePresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815882753DDE3000B65B3 /* ArticlePresenting.swift */; };
+		5A6815922753F459000B65B3 /* RepositoryContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815912753F459000B65B3 /* RepositoryContainer.swift */; };
+		5A68159A2753F481000B65B3 /* HasArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815992753F481000B65B3 /* HasArticlesRepository.swift */; };
+		5A68159F2753F491000B65B3 /* HasFeedRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A68159E2753F491000B65B3 /* HasFeedRepository.swift */; };
+		5A6815A42753F4A4000B65B3 /* HasOffersRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815A32753F4A4000B65B3 /* HasOffersRepository.swift */; };
+		5A6815A92753F4B4000B65B3 /* HasNativeAdsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815A82753F4B4000B65B3 /* HasNativeAdsRepository.swift */; };
+		5A6815AE2753F4C7000B65B3 /* RepositoryDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815AD2753F4C7000B65B3 /* RepositoryDependencies.swift */; };
 		5A7BAB1F274FFA7C006BFDE7 /* WidgetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BAB1E274FFA7C006BFDE7 /* WidgetViewCell.swift */; };
 		5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBBCDF274D969500BF096C /* AppDelegate.swift */; };
 		5ADBBCE9274D96A000BF096C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADBBCE8274D96A000BF096C /* Assets.xcassets */; };
@@ -102,6 +108,12 @@
 		5A68157B2753DC3C000B65B3 /* OfferPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferPresenting.swift; sourceTree = "<group>"; };
 		5A6815802753DD94000B65B3 /* NativeAdPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdPresenting.swift; sourceTree = "<group>"; };
 		5A6815882753DDE3000B65B3 /* ArticlePresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlePresenting.swift; sourceTree = "<group>"; };
+		5A6815912753F459000B65B3 /* RepositoryContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryContainer.swift; sourceTree = "<group>"; };
+		5A6815992753F481000B65B3 /* HasArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasArticlesRepository.swift; sourceTree = "<group>"; };
+		5A68159E2753F491000B65B3 /* HasFeedRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasFeedRepository.swift; sourceTree = "<group>"; };
+		5A6815A32753F4A4000B65B3 /* HasOffersRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasOffersRepository.swift; sourceTree = "<group>"; };
+		5A6815A82753F4B4000B65B3 /* HasNativeAdsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasNativeAdsRepository.swift; sourceTree = "<group>"; };
+		5A6815AD2753F4C7000B65B3 /* RepositoryDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDependencies.swift; sourceTree = "<group>"; };
 		5A7BAB1E274FFA7C006BFDE7 /* WidgetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewCell.swift; sourceTree = "<group>"; };
 		5ADBBCDC274D969500BF096C /* TrackingSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADBBCDF274D969500BF096C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -244,9 +256,24 @@
 			path = NativeAd;
 			sourceTree = "<group>";
 		};
+		5A6815902753F436000B65B3 /* AppFlowCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				5A30AC4A274EF28D00B7B197 /* AppFlowCoordinator.swift */,
+				5A6815912753F459000B65B3 /* RepositoryContainer.swift */,
+				5A6815992753F481000B65B3 /* HasArticlesRepository.swift */,
+				5A68159E2753F491000B65B3 /* HasFeedRepository.swift */,
+				5A6815A32753F4A4000B65B3 /* HasOffersRepository.swift */,
+				5A6815A82753F4B4000B65B3 /* HasNativeAdsRepository.swift */,
+				5A6815AD2753F4C7000B65B3 /* RepositoryDependencies.swift */,
+			);
+			path = AppFlowCoordinator;
+			sourceTree = "<group>";
+		};
 		5A7BAB0F274FF04B006BFDE7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				5A6815902753F436000B65B3 /* AppFlowCoordinator */,
 				5A7BAB13274FF1C1006BFDE7 /* MainTabBar */,
 				5A7BAB10274FF053006BFDE7 /* Feed */,
 				5A7BAB11274FF059006BFDE7 /* ArticleList */,
@@ -292,7 +319,6 @@
 		5A7BAB13274FF1C1006BFDE7 /* MainTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				5A30AC4A274EF28D00B7B197 /* AppFlowCoordinator.swift */,
 				5A30AC10274E807F00B7B197 /* MainTabBarController.swift */,
 			);
 			path = MainTabBar;
@@ -531,8 +557,10 @@
 				5A68156A2753D330000B65B3 /* NativeAdCoordinator.swift in Sources */,
 				5A18B7B727529B800053AC19 /* ArticlesRepository.swift in Sources */,
 				5AEA09E32751AA2200F7D216 /* OffersStorage.swift in Sources */,
+				5A6815922753F459000B65B3 /* RepositoryContainer.swift in Sources */,
 				5AEA09F72751ADB100F7D216 /* FeedStorage.swift in Sources */,
 				5A18B77A275267590053AC19 /* ContentGenerator.swift in Sources */,
+				5A68159F2753F491000B65B3 /* HasFeedRepository.swift in Sources */,
 				5AEA0997275198B300F7D216 /* Offer.swift in Sources */,
 				5AEA098F2751989B00F7D216 /* Article.swift in Sources */,
 				5A30AC2F274EE01400B7B197 /* Coordinator.swift in Sources */,
@@ -541,6 +569,7 @@
 				5A30AC16274E814900B7B197 /* FeedViewController.swift in Sources */,
 				5A30AC58274EF44A00B7B197 /* ArticleListCoordinator.swift in Sources */,
 				5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */,
+				5A68159A2753F481000B65B3 /* HasArticlesRepository.swift in Sources */,
 				5A68155B2753CDD2000B65B3 /* TitleDescriptionView.swift in Sources */,
 				5A7BAB1F274FFA7C006BFDE7 /* WidgetViewCell.swift in Sources */,
 				5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */,
@@ -552,6 +581,7 @@
 				5A30AC5D274EF47700B7B197 /* OfferListCoordinator.swift in Sources */,
 				5A68157C2753DC3C000B65B3 /* OfferPresenting.swift in Sources */,
 				5AEA09E82751AAC400F7D216 /* NativeAdsStorage.swift in Sources */,
+				5A6815A42753F4A4000B65B3 /* HasOffersRepository.swift in Sources */,
 				5AEA0A1C2751BDB500F7D216 /* FeedViewModel.swift in Sources */,
 				5AEA09A627519A6100F7D216 /* ArticlesStorage.swift in Sources */,
 				5A30AC11274E807F00B7B197 /* MainTabBarController.swift in Sources */,
@@ -560,12 +590,14 @@
 				5A18B7E12752CF1C0053AC19 /* OfferCoordinator.swift in Sources */,
 				5A6815812753DD94000B65B3 /* NativeAdPresenting.swift in Sources */,
 				5A6815722753D33B000B65B3 /* NativeAdViewController.swift in Sources */,
+				5A6815AE2753F4C7000B65B3 /* RepositoryDependencies.swift in Sources */,
 				5A68155227537839000B65B3 /* ArticleViewModel.swift in Sources */,
 				5A18B7E92752CF280053AC19 /* OfferViewController.swift in Sources */,
 				5A6815772753D346000B65B3 /* NativeAdViewModel.swift in Sources */,
 				5A6815452753781D000B65B3 /* ArticleCoordinator.swift in Sources */,
 				5A18B79E27526DDD0053AC19 /* OfferListViewModel.swift in Sources */,
 				5A30AC20274E818700B7B197 /* OfferListViewController.swift in Sources */,
+				5A6815A92753F4B4000B65B3 /* HasNativeAdsRepository.swift in Sources */,
 				5AEA09862751966300F7D216 /* Widget.swift in Sources */,
 				5A6815892753DDE3000B65B3 /* ArticlePresenting.swift in Sources */,
 				5A18B7A327526DE90053AC19 /* ArticleListViewModel.swift in Sources */,

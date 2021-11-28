@@ -5,11 +5,21 @@
 //  Created by Marcin Borek on 27/11/2021.
 //
 
-struct FeedViewModel {
+protocol FeedViewModelInterface {
+    // Output
+    func count() -> Int
+    func getItemAt(index: Int)
+    
+    // Actions
+    //var didSelectItem: (Widget) -> Void { get }
+}
+
+struct FeedViewModel/*: FeedViewModelInterface*/ {
     private let widgets: [Widget]
     
-    init(feedRepository: FeedRepository) {
+    init(feedRepository: FeedRepository/*, didSelectItem: (Widget) -> Void*/) {
         self.widgets = feedRepository.findAll()
+        //self.didSelectItem = didSelectItem
     }
     
     func count() -> Int {
