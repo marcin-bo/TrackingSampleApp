@@ -14,7 +14,7 @@ final class ArticleListCoordinator: Coordinator {
         navigationController
     }
     
-    private var navigationController: UINavigationController
+    private let navigationController: UINavigationController
 
     init() {
         let viewModel = ArticleListViewModel(articlesRepository: ArticlesStorage())

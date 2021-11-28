@@ -14,7 +14,7 @@ final class FeedCoordinator: Coordinator {
         navigationController
     }
     
-    private var navigationController: UINavigationController
+    private let navigationController: UINavigationController
 
     init() {
         let feedStorage = FeedStorage(

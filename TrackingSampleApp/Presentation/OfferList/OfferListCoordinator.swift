@@ -14,8 +14,8 @@ final class OfferListCoordinator: Coordinator {
         navigationController
     }
     
-    private var navigationController: UINavigationController
-    private var offerListViewController: OfferListViewController
+    private let navigationController: UINavigationController
+    private let offerListViewController: OfferListViewController
 
     init() {
         let viewModel = OfferListViewModel(offersRepository: OffersStorage())
