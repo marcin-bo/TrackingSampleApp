@@ -9,7 +9,8 @@ import UIKit
 
 final class NativeAdCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
-    var childCoordinators: [Coordinator]
+    
+    var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
         nativeAdViewController
@@ -31,7 +32,6 @@ final class NativeAdCoordinator: Coordinator {
                 machineName: machineName
             )
         )
-        self.childCoordinators = [Coordinator]()
         setupHandlers()
     }
     

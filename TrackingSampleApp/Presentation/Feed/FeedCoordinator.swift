@@ -10,7 +10,7 @@ import UIKit
 final class FeedCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
     
-    var childCoordinators: [Coordinator]
+    var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
         navigationController
@@ -28,7 +28,6 @@ final class FeedCoordinator: Coordinator {
         self.navigationController = UINavigationController(
             rootViewController: feedViewController
         )
-        self.childCoordinators = [Coordinator]()
         
         setupHandlers()
     }

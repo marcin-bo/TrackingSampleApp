@@ -9,7 +9,8 @@ import UIKit
 
 final class OfferListCoordinator: Coordinator {
     let offersRepository: OffersRepository
-    var childCoordinators: [Coordinator]
+    
+    var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
         navigationController
@@ -26,7 +27,6 @@ final class OfferListCoordinator: Coordinator {
         self.navigationController = UINavigationController(
             rootViewController: offerListViewController
         )
-        self.childCoordinators = [Coordinator]()
         setupHandlers()
     }
     

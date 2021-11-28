@@ -8,7 +8,7 @@
 import UIKit
 
 final class AppFlowCoordinator: Coordinator {
-    var childCoordinators: [Coordinator]
+    var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
         tabBarController

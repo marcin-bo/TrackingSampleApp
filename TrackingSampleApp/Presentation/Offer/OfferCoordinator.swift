@@ -8,7 +8,7 @@
 import UIKit
 
 final class OfferCoordinator: Coordinator {
-    var childCoordinators: [Coordinator]
+    var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
         offerViewController
@@ -29,7 +29,6 @@ final class OfferCoordinator: Coordinator {
                 machineName: machineName
             )
         )
-        self.childCoordinators = [Coordinator]()
     }
 
     func start() {

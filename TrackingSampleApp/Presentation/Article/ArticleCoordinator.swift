@@ -9,7 +9,7 @@ import UIKit
 
 final class ArticleCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
-    var childCoordinators: [Coordinator]
+    var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
         articleViewController
@@ -31,7 +31,6 @@ final class ArticleCoordinator: Coordinator {
                 machineName: machineName
             )
         )
-        self.childCoordinators = [Coordinator]()
         setupHandlers()
     }
 
