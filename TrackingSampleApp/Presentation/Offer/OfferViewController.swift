@@ -26,25 +26,61 @@ final class OfferViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = viewModel.title
+    }
+    
     override func loadView() {
         super.loadView()
+        view.backgroundColor = .white
         setupSubviews()
     }
-
+    
     private func setupSubviews() {
-        view.backgroundColor = .white
-        
+        setupStackView()
+        setupTitleLabel()
+        setupDescriptionLabel()
+        setupPurchaseButton()
+        setupSubviewsHierarchy()
+        setupSubviewsConstraints()
+    }
+    
+    private func setupSubviewsHierarchy() {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(purchaseButton)
-        
+    }
+    
+    private func setupStackView() {
         stackView.axis = .vertical
         stackView.distribution = .fill
         stackView.alignment = .center
         stackView.spacing = 15
-        
+    }
+    
+    private func setupTitleLabel() {
+        titleLabel.text = viewModel.title
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+    }
+    
+    private func setupDescriptionLabel() {
+        descriptionLabel.text = viewModel.description
+        descriptionLabel.numberOfLines = 0
+    }
+    
+    private func setupPurchaseButton() {
+        purchaseButton.backgroundColor = .systemGreen
+        purchaseButton.setTitle("Purchase", for: .normal)
+        purchaseButton.setTitleColor(.white, for: .normal)
+        purchaseButton.layer.cornerRadius = 15
+        purchaseButton.clipsToBounds = true
+    }
+    
+    private func setupSubviewsConstraints() {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -84,24 +120,6 @@ final class OfferViewController: UIViewController {
             ),
             purchaseButton.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
-        titleLabel.text = viewModel.title
-        titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        
-        descriptionLabel.text = viewModel.description
-        descriptionLabel.numberOfLines = 0
-        
-        purchaseButton.backgroundColor = .systemGreen
-        purchaseButton.setTitle("Purchase", for: .normal)
-        purchaseButton.setTitleColor(.white, for: .normal)
-        purchaseButton.layer.cornerRadius = 15
-        purchaseButton.clipsToBounds = true
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        title = viewModel.title
     }
 }
 
