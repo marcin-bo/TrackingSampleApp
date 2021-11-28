@@ -33,3 +33,7 @@ final class WidgetViewCell: UITableViewCell {
         detailTextLabel?.text = widget.subtitle
     }
 }
+
+extension WidgetViewCell {
+    static let reuseIdentifier: String = String(describing: self)
+}

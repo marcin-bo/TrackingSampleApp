@@ -36,7 +36,7 @@ final class ArticleListViewController: UIViewController {
         
         tableView.register(
             WidgetViewCell.self,
-            forCellReuseIdentifier: ReuseIdentifier.tableCell
+            forCellReuseIdentifier: WidgetViewCell.reuseIdentifier
         )
         
         tableView.delegate = self
@@ -64,13 +64,13 @@ extension ArticleListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: WidgetViewCell = {
             if let cell = tableView.dequeueReusableCell(
-                withIdentifier: ReuseIdentifier.tableCell,
+                withIdentifier: WidgetViewCell.reuseIdentifier,
                 for: indexPath as IndexPath) as? WidgetViewCell {
                 return cell
             }
             return WidgetViewCell(
                 style: UITableViewCell.CellStyle.subtitle,
-                reuseIdentifier: ReuseIdentifier.tableCell
+                reuseIdentifier: WidgetViewCell.reuseIdentifier
             )
         }()
         
@@ -79,11 +79,5 @@ extension ArticleListViewController: UITableViewDataSource {
         }
         
         return cell
-    }
-}
-
-extension ArticleListViewController {
-    private enum ReuseIdentifier {
-        static let tableCell = "tableCell"
     }
 }
