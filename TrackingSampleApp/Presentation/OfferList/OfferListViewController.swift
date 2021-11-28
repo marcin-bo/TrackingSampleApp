@@ -10,6 +10,7 @@ import UIKit
 final class OfferListViewController: UIViewController {
     private let viewModel: OfferListViewModel
     private let tableView = UITableView(frame: .zero, style: .plain)
+    var didSelectOffer: ((String) -> Void)?
     
     init(viewModel: OfferListViewModel) {
         self.viewModel = viewModel
@@ -25,7 +26,7 @@ final class OfferListViewController: UIViewController {
         super.loadView()
         setupTableView()
     }
-
+    
     private func setupTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -52,7 +53,10 @@ final class OfferListViewController: UIViewController {
 
 extension OfferListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
+            return
+        }
+        didSelectOffer?(widget.machineName)
     }
 }
 
