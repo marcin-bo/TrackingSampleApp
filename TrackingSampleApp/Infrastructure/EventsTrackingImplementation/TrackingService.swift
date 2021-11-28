@@ -7,6 +7,6 @@
 
 struct TrackingService: EventsTracking {
     func track(event: Event) {
-        print("TRACK EVENT: '\(event.name)' - origin: '\(event.origin)' - machineName: '\(event.machineName)'")
+        print("EVENT: \(event.name) | ORIGIN: \(event.origin) | MACHINENAME: \(event.machineName)")
     }
 }
