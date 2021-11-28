@@ -14,7 +14,7 @@ final class ArticleListCoordinator: Coordinator {
         navigationController
     }
     
-    private let navigationController: UINavigationController
+    let navigationController: UINavigationController
     private let articleListViewController: ArticleListViewController
 
     init() {
@@ -29,20 +29,13 @@ final class ArticleListCoordinator: Coordinator {
     
     private func setupHandlers() {
         articleListViewController.didSelectArticle = { [weak self] machineName in
-            self?.openArticle(machineName: machineName)
+            self?.presentArticle(machineName: machineName)
         }
     }
 
     func start() {
         
     }
-    
-    private func openArticle(machineName: String) {
-        let articleCoordinator = ArticleCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        articleCoordinator.start()
-        childCoordinators.append(articleCoordinator)
-    }
 }
+
+extension ArticleListCoordinator: ArticlePresenting { }

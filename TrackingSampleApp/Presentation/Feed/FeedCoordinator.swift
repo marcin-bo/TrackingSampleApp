@@ -14,7 +14,7 @@ final class FeedCoordinator: Coordinator {
         navigationController
     }
     
-    private let navigationController: UINavigationController
+    let navigationController: UINavigationController
     private let feedViewController: FeedViewController
 
     init() {
@@ -35,44 +35,21 @@ final class FeedCoordinator: Coordinator {
     
     private func setupHandlers() {
         feedViewController.didSelectArticle = { [weak self] machineName in
-            self?.openArticle(machineName: machineName)
+            self?.presentArticle(machineName: machineName)
         }
         feedViewController.didSelectNativeAd = { [weak self] machineName in
-            self?.openNativeAd(machineName: machineName)
+            self?.presentNativeAd(machineName: machineName)
         }
         feedViewController.didSelectOffer = { [weak self] machineName in
-            self?.openOffer(machineName: machineName)
+            self?.presentOffer(machineName: machineName)
         }
     }
 
     func start() {
         
     }
-    
-    private func openOffer(machineName: String) {
-        let offerCoordinator = OfferCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        offerCoordinator.start()
-        childCoordinators.append(offerCoordinator)
-    }
-    
-    private func openArticle(machineName: String) {
-        let articleCoordinator = ArticleCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        articleCoordinator.start()
-        childCoordinators.append(articleCoordinator)
-    }
-    
-    private func openNativeAd(machineName: String) {
-        let nativeAdCoordinator = NativeAdCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        nativeAdCoordinator.start()
-        childCoordinators.append(nativeAdCoordinator)
-    }
 }
+
+extension FeedCoordinator: ArticlePresenting { }
+extension FeedCoordinator: NativeAdPresenting { }
+extension FeedCoordinator: OfferPresenting { }

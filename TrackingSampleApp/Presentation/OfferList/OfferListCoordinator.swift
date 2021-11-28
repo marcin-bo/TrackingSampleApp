@@ -14,7 +14,7 @@ final class OfferListCoordinator: Coordinator {
         navigationController
     }
     
-    private let navigationController: UINavigationController
+    let navigationController: UINavigationController
     private let offerListViewController: OfferListViewController
 
     init() {
@@ -29,20 +29,13 @@ final class OfferListCoordinator: Coordinator {
     
     private func setupHandlers() {
         offerListViewController.didSelectOffer = { [weak self] machineName in
-            self?.openOffer(machineName: machineName)
+            self?.presentOffer(machineName: machineName)
         }
     }
 
     func start() {
         
     }
-    
-    private func openOffer(machineName: String) {
-        let offerCoordinator = OfferCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        offerCoordinator.start()
-        childCoordinators.append(offerCoordinator)
-    }
 }
+
+extension OfferListCoordinator: OfferPresenting { }

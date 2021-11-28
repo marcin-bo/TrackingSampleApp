@@ -14,7 +14,7 @@ final class NativeAdCoordinator: Coordinator {
         nativeAdViewController
     }
     
-    private let navigationController: UINavigationController
+    let navigationController: UINavigationController
     private let nativeAdViewController: NativeAdViewController
 
     init(navigationController: UINavigationController, machineName: String) {
@@ -31,32 +31,17 @@ final class NativeAdCoordinator: Coordinator {
     
     private func setupHandlers() {
         nativeAdViewController.didSelectArticle = { [weak self] machineName in
-            self?.openArticle(machineName: machineName)
+            self?.presentArticle(machineName: machineName)
         }
         nativeAdViewController.didSelectOffer = { [weak self] machineName in
-            self?.openOffer(machineName: machineName)
+            self?.presentOffer(machineName: machineName)
         }
     }
 
     func start() {
         navigationController.pushViewController(nativeAdViewController, animated: true)
     }
-    
-    private func openOffer(machineName: String) {
-        let offerCoordinator = OfferCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        offerCoordinator.start()
-        childCoordinators.append(offerCoordinator)
-    }
-    
-    private func openArticle(machineName: String) {
-        let articleCoordinator = ArticleCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        articleCoordinator.start()
-        childCoordinators.append(articleCoordinator)
-    }
 }
+
+extension NativeAdCoordinator: ArticlePresenting { }
+extension NativeAdCoordinator: OfferPresenting { }

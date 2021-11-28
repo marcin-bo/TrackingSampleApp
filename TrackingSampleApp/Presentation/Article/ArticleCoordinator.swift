@@ -14,7 +14,7 @@ final class ArticleCoordinator: Coordinator {
         articleViewController
     }
     
-    private let navigationController: UINavigationController
+    let navigationController: UINavigationController
     private let articleViewController: ArticleViewController
 
     init(navigationController: UINavigationController, machineName: String) {
@@ -31,44 +31,21 @@ final class ArticleCoordinator: Coordinator {
 
     private func setupHandlers() {
         articleViewController.didSelectArticle = { [weak self] machineName in
-            self?.openArticle(machineName: machineName)
+            self?.presentArticle(machineName: machineName)
         }
         articleViewController.didSelectNativeAd = { [weak self] machineName in
-            self?.openNativeAd(machineName: machineName)
+            self?.presentNativeAd(machineName: machineName)
         }
         articleViewController.didSelectOffer = { [weak self] machineName in
-            self?.openOffer(machineName: machineName)
+            self?.presentOffer(machineName: machineName)
         }
     }
 
     func start() {
         navigationController.pushViewController(articleViewController, animated: true)
     }
-    
-    private func openOffer(machineName: String) {
-        let offerCoordinator = OfferCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        offerCoordinator.start()
-        childCoordinators.append(offerCoordinator)
-    }
-    
-    private func openArticle(machineName: String) {
-        let articleCoordinator = ArticleCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        articleCoordinator.start()
-        childCoordinators.append(articleCoordinator)
-    }
-    
-    private func openNativeAd(machineName: String) {
-        let nativeAdCoordinator = NativeAdCoordinator(
-            navigationController: navigationController,
-            machineName: machineName
-        )
-        nativeAdCoordinator.start()
-        childCoordinators.append(nativeAdCoordinator)
-    }
 }
+
+extension ArticleCoordinator: ArticlePresenting { }
+extension ArticleCoordinator: NativeAdPresenting { }
+extension ArticleCoordinator: OfferPresenting { }
