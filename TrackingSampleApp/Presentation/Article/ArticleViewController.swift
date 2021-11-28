@@ -1,20 +1,19 @@
 //
-//  ArticleListViewController.swift
+//  ArticleViewController.swift
 //  TrackingSampleApp
 //
-//  Created by Marcin Borek on 24/11/2021.
+//  Created by Marcin Borek on 28/11/2021.
 //
 
 import UIKit
 
-final class ArticleListViewController: UIViewController {
-    private let viewModel: ArticleListViewModel
+final class ArticleViewController: UIViewController {
+    private let viewModel: ArticleViewModel
     
+    private let titleDescriptionView = TitleDescriptionView()
     private let tableView = UITableView(frame: .zero, style: .plain)
     
-    var didSelectArticle: ((String) -> Void)?
-    
-    init(viewModel: ArticleListViewModel) {
+    init(viewModel: ArticleViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,14 +25,26 @@ final class ArticleListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Articles"
+        title = viewModel.title
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        sizeHeaderToFit()
+    }
+    
+    private func sizeHeaderToFit() {
+        if let header = tableView.tableHeaderView {
+            let newSize = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            header.frame.size.height = newSize.height + 150 // FIXME: label height is calculated incorrectly
+        }
     }
     
     override func loadView() {
         super.loadView()
         setupSubviews()
     }
-
+    
     private func setupSubviews() {
         setupTableView()
         setupSubviewsHierarchy()
@@ -41,6 +52,8 @@ final class ArticleListViewController: UIViewController {
     }
     
     private func setupTableView() {
+        titleDescriptionView.update(title: viewModel.title, description: viewModel.description)
+        tableView.tableHeaderView = titleDescriptionView
         tableView.register(
             WidgetViewCell.self,
             forCellReuseIdentifier: WidgetViewCell.reuseIdentifier
@@ -64,16 +77,13 @@ final class ArticleListViewController: UIViewController {
     }
 }
 
-extension ArticleListViewController: UITableViewDelegate {
+extension ArticleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
-            return
-        }
-        didSelectArticle?(widget.machineName)
+        
     }
 }
 
-extension ArticleListViewController: UITableViewDataSource {
+extension ArticleViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count()
     }
@@ -98,3 +108,28 @@ extension ArticleListViewController: UITableViewDataSource {
         return cell
     }
 }
+
+// MARK: Support for Preview
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+struct ArticleViewRepresentable: UIViewRepresentable {
+    func makeUIView(context: Context) -> UIView {
+        let viewModel = ArticleViewModel(
+            articlesRepository: ArticlesStorage(),
+            machineName: "article-1"
+        )
+        return ArticleViewController(viewModel: viewModel).view
+    }
+    
+    func updateUIView(_ view: UIView, context: Context) {
+        
+    }
+}
+
+@available(iOS 13.0, *)
+struct ArticleViewController_Preview: PreviewProvider {
+    static var previews: some View {
+        ArticleViewRepresentable()
+    }
+}
+#endif

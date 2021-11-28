@@ -15,16 +15,34 @@ final class ArticleListCoordinator: Coordinator {
     }
     
     private let navigationController: UINavigationController
+    private let articleListViewController: ArticleListViewController
 
     init() {
         let viewModel = ArticleListViewModel(articlesRepository: ArticlesStorage())
+        self.articleListViewController = ArticleListViewController(viewModel: viewModel)
         self.navigationController = UINavigationController(
-            rootViewController: ArticleListViewController(viewModel: viewModel)
+            rootViewController: articleListViewController
         )
         self.childCoordinators = [Coordinator]()
+        setupHandlers()
+    }
+    
+    private func setupHandlers() {
+        articleListViewController.didSelectArticle = { [weak self] machineName in
+            self?.openArticle(machineName: machineName)
+        }
     }
 
     func start() {
         
+    }
+    
+    private func openArticle(machineName: String) {
+        let articleCoordinator = ArticleCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        articleCoordinator.start()
+        childCoordinators.append(articleCoordinator)
     }
 }
