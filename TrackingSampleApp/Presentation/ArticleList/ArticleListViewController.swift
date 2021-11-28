@@ -8,13 +8,11 @@
 import UIKit
 
 final class ArticleListViewController: UIViewController {
-    private let viewModel: ArticleListViewModel
+    private var viewModel: ArticleListViewModelInterface
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
-    var didSelectArticle: ((String) -> Void)?
-    
-    init(viewModel: ArticleListViewModel) {
+    init(viewModel: ArticleListViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,6 +32,10 @@ final class ArticleListViewController: UIViewController {
         setupSubviews()
     }
 
+    func updateViewModelActions(_ actions: ArticleListViewModelActions) {
+        viewModel.actions = actions
+    }
+    
     private func setupSubviews() {
         setupTableView()
         setupSubviewsHierarchy()
@@ -66,10 +68,10 @@ final class ArticleListViewController: UIViewController {
 
 extension ArticleListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
+        guard let article = viewModel.getArticleAt(index: indexPath.row) else {
             return
         }
-        didSelectArticle?(widget.machineName)
+        viewModel.actions?.didSelectArticle?(article)
     }
 }
 
@@ -91,8 +93,8 @@ extension ArticleListViewController: UITableViewDataSource {
             )
         }()
         
-        if let widget = viewModel.getItemAt(index: indexPath.row) {
-            cell.update(widget: widget)
+        if let article = viewModel.getArticleAt(index: indexPath.row) {
+            cell.update(widget: article)
         }
         
         return cell

@@ -31,19 +31,21 @@ final class ArticleCoordinator: Coordinator {
                 machineName: machineName
             )
         )
-        setupHandlers()
+        setupActions()
     }
 
-    private func setupHandlers() {
-        articleViewController.didSelectArticle = { [weak self] machineName in
-            self?.presentArticle(machineName: machineName)
+    private func setupActions() {
+        let didSelectWidget: (Widget) -> Void = { [weak self] widget in
+            if widget is Article {
+                self?.presentArticle(machineName: widget.machineName)
+            } else if widget is NativeAd {
+                self?.presentNativeAd(machineName: widget.machineName)
+            } else if widget is Offer {
+                self?.presentOffer(machineName: widget.machineName)
+            }
         }
-        articleViewController.didSelectNativeAd = { [weak self] machineName in
-            self?.presentNativeAd(machineName: machineName)
-        }
-        articleViewController.didSelectOffer = { [weak self] machineName in
-            self?.presentOffer(machineName: machineName)
-        }
+        let actions = ArticleViewModelActions(didSelectWidget: didSelectWidget)
+        articleViewController.updateViewModelActions(actions)
     }
 
     func start() {

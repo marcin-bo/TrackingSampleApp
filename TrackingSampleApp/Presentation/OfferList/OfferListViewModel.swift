@@ -5,19 +5,35 @@
 //  Created by Marcin Borek on 27/11/2021.
 //
 
+protocol OfferListViewModelInterface {
+    // Output
+    func count() -> Int
+    func getOfferAt(index: Int) -> Offer?
+    
+    // Actions
+    var actions: OfferListViewModelActions? { get set }
+}
+
+struct OfferListViewModelActions {
+    let didSelectOffer: ((Offer) -> Void)?
+}
+
 struct OfferListViewModel {
-    private let widgets: [Widget]
+    var actions: OfferListViewModelActions?
+    private let offers: [Offer]
     
     init(offersRepository: OffersRepository) {
-        self.widgets = offersRepository.findAll()
+        self.offers = offersRepository.findAll()
     }
-    
+}
+
+extension OfferListViewModel: OfferListViewModelInterface {
     func count() -> Int {
-        widgets.count
+        offers.count
     }
     
-    func getItemAt(index: Int) -> Widget? {
-        guard index < widgets.count else { return nil }
-        return widgets[index]
+    func getOfferAt(index: Int) -> Offer? {
+        guard index < offers.count else { return nil }
+        return offers[index]
     }
 }

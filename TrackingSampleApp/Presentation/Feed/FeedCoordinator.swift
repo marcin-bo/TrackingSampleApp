@@ -29,11 +29,11 @@ final class FeedCoordinator: Coordinator {
             rootViewController: feedViewController
         )
         
-        setupHandlers()
+        setupActions()
     }
     
-    private func setupHandlers() {
-        feedViewController.didSelectItem = { [weak self] widget in
+    private func setupActions() {
+        let didSelectWidget: (Widget) -> Void = { [weak self] widget in
             if widget is Article {
                 self?.presentArticle(machineName: widget.machineName)
             } else if widget is NativeAd {
@@ -42,6 +42,8 @@ final class FeedCoordinator: Coordinator {
                 self?.presentOffer(machineName: widget.machineName)
             }
         }
+        let actions = FeedViewModelActions(didSelectWidget: didSelectWidget)
+        feedViewController.updateViewModelActions(actions)
     }
 
     func start() {

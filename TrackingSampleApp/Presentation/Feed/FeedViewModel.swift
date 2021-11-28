@@ -8,25 +8,31 @@
 protocol FeedViewModelInterface {
     // Output
     func count() -> Int
-    func getItemAt(index: Int)
+    func getWidgetAt(index: Int) -> Widget?
     
     // Actions
-    //var didSelectItem: (Widget) -> Void { get }
+    var actions: FeedViewModelActions? { get set }
 }
 
-struct FeedViewModel/*: FeedViewModelInterface*/ {
+struct FeedViewModelActions {
+    let didSelectWidget: ((Widget) -> Void)?
+}
+
+struct FeedViewModel {
+    var actions: FeedViewModelActions?
     private let widgets: [Widget]
     
-    init(feedRepository: FeedRepository/*, didSelectItem: (Widget) -> Void*/) {
+    init(feedRepository: FeedRepository) {
         self.widgets = feedRepository.findAll()
-        //self.didSelectItem = didSelectItem
     }
-    
+}
+
+extension FeedViewModel: FeedViewModelInterface {
     func count() -> Int {
         widgets.count
     }
     
-    func getItemAt(index: Int) -> Widget? {
+    func getWidgetAt(index: Int) -> Widget? {
         guard index < widgets.count else { return nil }
         return widgets[index]
     }

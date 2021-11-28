@@ -8,16 +8,12 @@
 import UIKit
 
 final class ArticleViewController: UIViewController {
-    private let viewModel: ArticleViewModel
+    private var viewModel: ArticleViewModelInterface
     
     private let titleDescriptionView = TitleDescriptionView()
     private let tableView = UITableView(frame: .zero, style: .plain)
     
-    var didSelectArticle: ((String) -> Void)?
-    var didSelectNativeAd: ((String) -> Void)?
-    var didSelectOffer: ((String) -> Void)?
-    
-    init(viewModel: ArticleViewModel) {
+    init(viewModel: ArticleViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -35,6 +31,10 @@ final class ArticleViewController: UIViewController {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         sizeHeaderToFit()
+    }
+    
+    func updateViewModelActions(_ actions: ArticleViewModelActions) {
+        viewModel.actions = actions
     }
     
     private func sizeHeaderToFit() {
@@ -83,16 +83,10 @@ final class ArticleViewController: UIViewController {
 
 extension ArticleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
+        guard let widget = viewModel.getWidgetAt(index: indexPath.row) else {
             return
         }
-        if widget is Article {
-            didSelectArticle?(widget.machineName)
-        } else if widget is NativeAd {
-            didSelectNativeAd?(widget.machineName)
-        } else if widget is Offer {
-            didSelectOffer?(widget.machineName)
-        }
+        viewModel.actions?.didSelectWidget?(widget)
     }
 }
 
@@ -114,7 +108,7 @@ extension ArticleViewController: UITableViewDataSource {
             )
         }()
         
-        if let widget = viewModel.getItemAt(index: indexPath.row) {
+        if let widget = viewModel.getWidgetAt(index: indexPath.row) {
             cell.update(widget: widget)
         }
         

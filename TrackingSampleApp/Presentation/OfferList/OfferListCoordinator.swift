@@ -27,13 +27,15 @@ final class OfferListCoordinator: Coordinator {
         self.navigationController = UINavigationController(
             rootViewController: offerListViewController
         )
-        setupHandlers()
+        setupActions()
     }
     
-    private func setupHandlers() {
-        offerListViewController.didSelectOffer = { [weak self] machineName in
-            self?.presentOffer(machineName: machineName)
+    private func setupActions() {
+        let didSelectOffer: (Offer) -> Void = { [weak self] offer in
+            self?.presentOffer(machineName: offer.machineName)
         }
+        let actions = OfferListViewModelActions(didSelectOffer: didSelectOffer)
+        offerListViewController.updateViewModelActions(actions)
     }
 
     func start() {

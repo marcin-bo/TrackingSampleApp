@@ -5,19 +5,35 @@
 //  Created by Marcin Borek on 27/11/2021.
 //
 
+protocol ArticleListViewModelInterface {
+    // Output
+    func count() -> Int
+    func getArticleAt(index: Int) -> Article?
+    
+    // Actions
+    var actions: ArticleListViewModelActions? { get set }
+}
+
+struct ArticleListViewModelActions {
+    let didSelectArticle: ((Article) -> Void)?
+}
+
 struct ArticleListViewModel {
-    private let widgets: [Widget]
+    private let articles: [Article]
+    var actions: ArticleListViewModelActions?
     
     init(articlesRepository: ArticlesRepository) {
-        self.widgets = articlesRepository.findAll()
+        self.articles = articlesRepository.findAll()
     }
-    
+}
+
+extension ArticleListViewModel: ArticleListViewModelInterface {
     func count() -> Int {
-        widgets.count
+        articles.count
     }
     
-    func getItemAt(index: Int) -> Widget? {
-        guard index < widgets.count else { return nil }
-        return widgets[index]
+    func getArticleAt(index: Int) -> Article? {
+        guard index < articles.count else { return nil }
+        return articles[index]
     }
 }

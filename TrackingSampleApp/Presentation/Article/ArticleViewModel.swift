@@ -5,7 +5,24 @@
 //  Created by Marcin Borek on 28/11/2021.
 //
 
+protocol ArticleViewModelInterface {
+    // Output
+    var title: String? { get }
+    var description: String? { get }
+    
+    func count() -> Int
+    func getWidgetAt(index: Int) -> Widget?
+    
+    // Actions
+    var actions: ArticleViewModelActions? { get set }
+}
+
+struct ArticleViewModelActions {
+    let didSelectWidget: ((Widget) -> Void)?
+}
+
 struct ArticleViewModel {
+    var actions: ArticleViewModelActions?
     private let articlesRepository: ArticlesRepository
     private let article: Article?
     
@@ -13,7 +30,9 @@ struct ArticleViewModel {
         self.articlesRepository = articlesRepository
         self.article = articlesRepository.findFirst(machineName: machineName)
     }
-    
+}
+
+extension ArticleViewModel: ArticleViewModelInterface {
     var title: String? {
         article?.title
     }
@@ -26,7 +45,7 @@ struct ArticleViewModel {
         article?.widgets.count ?? 0
     }
     
-    func getItemAt(index: Int) -> Widget? {
+    func getWidgetAt(index: Int) -> Widget? {
         guard let article = article,
               index < article.widgets.count
         else {

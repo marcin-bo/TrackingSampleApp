@@ -32,16 +32,21 @@ final class NativeAdCoordinator: Coordinator {
                 machineName: machineName
             )
         )
-        setupHandlers()
+        setupActions()
     }
     
-    private func setupHandlers() {
-        nativeAdViewController.didSelectArticle = { [weak self] machineName in
-            self?.presentArticle(machineName: machineName)
+    private func setupActions() {
+        let didSelectWidget: (Widget) -> Void = { [weak self] widget in
+            if widget is Article {
+                self?.presentArticle(machineName: widget.machineName)
+            } else if widget is NativeAd {
+                self?.presentNativeAd(machineName: widget.machineName)
+            } else if widget is Offer {
+                self?.presentOffer(machineName: widget.machineName)
+            }
         }
-        nativeAdViewController.didSelectOffer = { [weak self] machineName in
-            self?.presentOffer(machineName: machineName)
-        }
+        let actions = NativeAdViewModelActions(didSelectWidget: didSelectWidget)
+        nativeAdViewController.updateViewModelActions(actions)
     }
 
     func start() {
@@ -50,6 +55,8 @@ final class NativeAdCoordinator: Coordinator {
 }
 
 extension NativeAdCoordinator: ArticlePresenting { }
+
+extension NativeAdCoordinator: NativeAdPresenting { }
 
 extension NativeAdCoordinator: OfferPresenting {
     var offersRepository: OffersRepository {

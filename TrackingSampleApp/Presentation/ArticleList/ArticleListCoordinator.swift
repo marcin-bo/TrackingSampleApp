@@ -28,13 +28,15 @@ final class ArticleListCoordinator: Coordinator {
         self.navigationController = UINavigationController(
             rootViewController: articleListViewController
         )
-        setupHandlers()
+        setupActions()
     }
     
-    private func setupHandlers() {
-        articleListViewController.didSelectArticle = { [weak self] machineName in
-            self?.presentArticle(machineName: machineName)
+    private func setupActions() {
+        let didSelectArticle: (Article) -> Void = { [weak self] article in
+            self?.presentArticle(machineName: article.machineName)
         }
+        let actions = ArticleListViewModelActions(didSelectArticle: didSelectArticle)
+        articleListViewController.updateViewModelActions(actions)
     }
 
     func start() {

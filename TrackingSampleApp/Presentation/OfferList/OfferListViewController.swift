@@ -8,13 +8,13 @@
 import UIKit
 
 final class OfferListViewController: UIViewController {
-    private let viewModel: OfferListViewModel
+    private var viewModel: OfferListViewModelInterface
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
     var didSelectOffer: ((String) -> Void)?
     
-    init(viewModel: OfferListViewModel) {
+    init(viewModel: OfferListViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -32,6 +32,10 @@ final class OfferListViewController: UIViewController {
     override func loadView() {
         super.loadView()
         setupSubviews()
+    }
+    
+    func updateViewModelActions(_ actions: OfferListViewModelActions) {
+        viewModel.actions = actions
     }
 
     private func setupSubviews() {
@@ -66,10 +70,10 @@ final class OfferListViewController: UIViewController {
 
 extension OfferListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
+        guard let offer = viewModel.getOfferAt(index: indexPath.row) else {
             return
         }
-        didSelectOffer?(widget.machineName)
+        viewModel.actions?.didSelectOffer?(offer)
     }
 }
 
@@ -91,7 +95,7 @@ extension OfferListViewController: UITableViewDataSource {
             )
         }()
         
-        if let widget = viewModel.getItemAt(index: indexPath.row) {
+        if let widget = viewModel.getOfferAt(index: indexPath.row) {
             cell.update(widget: widget)
         }
         

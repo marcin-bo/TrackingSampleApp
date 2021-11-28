@@ -8,13 +8,11 @@
 import UIKit
 
 final class FeedViewController: UIViewController {
-    private let viewModel: FeedViewModel
+    private var viewModel: FeedViewModelInterface
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
-    var didSelectItem: ((Widget) -> Void)?
-    
-    init(viewModel: FeedViewModel) {
+    init(viewModel: FeedViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,6 +32,10 @@ final class FeedViewController: UIViewController {
         setupSubviews()
     }
 
+    func updateViewModelActions(_ actions: FeedViewModelActions) {
+        viewModel.actions = actions
+    }
+    
     private func setupSubviews() {
         setupTableView()
         setupSubviewsHierarchy()
@@ -66,10 +68,10 @@ final class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
+        guard let widget = viewModel.getWidgetAt(index: indexPath.row) else {
             return
         }
-        didSelectItem?(widget)
+        viewModel.actions?.didSelectWidget?(widget)
     }
 }
 
@@ -91,7 +93,7 @@ extension FeedViewController: UITableViewDataSource {
             )
         }()
         
-        if let widget = viewModel.getItemAt(index: indexPath.row) {
+        if let widget = viewModel.getWidgetAt(index: indexPath.row) {
             cell.update(widget: widget)
         }
         
