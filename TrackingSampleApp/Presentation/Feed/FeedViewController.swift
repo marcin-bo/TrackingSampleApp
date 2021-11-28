@@ -12,9 +12,7 @@ final class FeedViewController: UIViewController {
     
     private let tableView = UITableView(frame: .zero, style: .plain)
     
-    var didSelectArticle: ((String) -> Void)?
-    var didSelectNativeAd: ((String) -> Void)?
-    var didSelectOffer: ((String) -> Void)?
+    var didSelectItem: ((Widget) -> Void)?
     
     init(viewModel: FeedViewModel) {
         self.viewModel = viewModel
@@ -71,13 +69,7 @@ extension FeedViewController: UITableViewDelegate {
         guard let widget = viewModel.getItemAt(index: indexPath.row) else {
             return
         }
-        if widget is Article {
-            didSelectArticle?(widget.machineName)
-        } else if widget is NativeAd {
-            didSelectNativeAd?(widget.machineName)
-        } else if widget is Offer {
-            didSelectOffer?(widget.machineName)
-        }
+        didSelectItem?(widget)
     }
 }
 

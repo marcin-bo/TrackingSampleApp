@@ -34,14 +34,14 @@ final class FeedCoordinator: Coordinator {
     }
     
     private func setupHandlers() {
-        feedViewController.didSelectArticle = { [weak self] machineName in
-            self?.presentArticle(machineName: machineName)
-        }
-        feedViewController.didSelectNativeAd = { [weak self] machineName in
-            self?.presentNativeAd(machineName: machineName)
-        }
-        feedViewController.didSelectOffer = { [weak self] machineName in
-            self?.presentOffer(machineName: machineName)
+        feedViewController.didSelectItem = { [weak self] widget in
+            if widget is Article {
+                self?.presentArticle(machineName: widget.machineName)
+            } else if widget is NativeAd {
+                self?.presentNativeAd(machineName: widget.machineName)
+            } else if widget is Offer {
+                self?.presentOffer(machineName: widget.machineName)
+            }
         }
     }
 
