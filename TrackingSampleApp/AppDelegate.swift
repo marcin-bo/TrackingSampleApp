@@ -15,7 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        appFlowCoordinator = AppFlowCoordinator()
+        
+        let articlesRepository = ArticlesStorage()
+        let nativeAdsRepository = NativeAdsStorage()
+        let offersRepository = OffersStorage()
+        let feedRepository = FeedStorage(
+            articleRepository: articlesRepository,
+            nativeAdsRepository: nativeAdsRepository,
+            offersRepository: offersRepository
+        )
+        let repositoryContainer = RepositoryContainer(
+            articlesRepository: articlesRepository,
+            feedRepository: feedRepository,
+            nativeAdsRepository: nativeAdsRepository,
+            offersRepository: offersRepository
+        )
+        
+        appFlowCoordinator = AppFlowCoordinator(repositoryContainer: repositoryContainer)
         window?.rootViewController = appFlowCoordinator?.rootViewController
         window?.makeKeyAndVisible()
         
