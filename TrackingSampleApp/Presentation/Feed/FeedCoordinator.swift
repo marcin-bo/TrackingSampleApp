@@ -15,6 +15,7 @@ final class FeedCoordinator: Coordinator {
     }
     
     private let navigationController: UINavigationController
+    private let feedViewController: FeedViewController
 
     init() {
         let feedStorage = FeedStorage(
@@ -24,13 +25,54 @@ final class FeedCoordinator: Coordinator {
         )
         let viewModel = FeedViewModel(feedRepository: feedStorage)
         
+        self.feedViewController = FeedViewController(viewModel: viewModel)
         self.navigationController = UINavigationController(
-            rootViewController: FeedViewController(viewModel: viewModel)
+            rootViewController: feedViewController
         )
         self.childCoordinators = [Coordinator]()
+        setupHandlers()
+    }
+    
+    private func setupHandlers() {
+        feedViewController.didSelectArticle = { [weak self] machineName in
+            self?.openArticle(machineName: machineName)
+        }
+        feedViewController.didSelectNativeAd = { [weak self] machineName in
+            self?.openNativeAd(machineName: machineName)
+        }
+        feedViewController.didSelectOffer = { [weak self] machineName in
+            self?.openOffer(machineName: machineName)
+        }
     }
 
     func start() {
         
+    }
+    
+    private func openOffer(machineName: String) {
+        let offerCoordinator = OfferCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        offerCoordinator.start()
+        childCoordinators.append(offerCoordinator)
+    }
+    
+    private func openArticle(machineName: String) {
+        let articleCoordinator = ArticleCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        articleCoordinator.start()
+        childCoordinators.append(articleCoordinator)
+    }
+    
+    private func openNativeAd(machineName: String) {
+        let nativeAdCoordinator = NativeAdCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        nativeAdCoordinator.start()
+        childCoordinators.append(nativeAdCoordinator)
     }
 }

@@ -26,9 +26,49 @@ final class ArticleCoordinator: Coordinator {
             )
         )
         self.childCoordinators = [Coordinator]()
+        setupHandlers()
+    }
+
+    private func setupHandlers() {
+        articleViewController.didSelectArticle = { [weak self] machineName in
+            self?.openArticle(machineName: machineName)
+        }
+        articleViewController.didSelectNativeAd = { [weak self] machineName in
+            self?.openNativeAd(machineName: machineName)
+        }
+        articleViewController.didSelectOffer = { [weak self] machineName in
+            self?.openOffer(machineName: machineName)
+        }
     }
 
     func start() {
         navigationController.pushViewController(articleViewController, animated: true)
+    }
+    
+    private func openOffer(machineName: String) {
+        let offerCoordinator = OfferCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        offerCoordinator.start()
+        childCoordinators.append(offerCoordinator)
+    }
+    
+    private func openArticle(machineName: String) {
+        let articleCoordinator = ArticleCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        articleCoordinator.start()
+        childCoordinators.append(articleCoordinator)
+    }
+    
+    private func openNativeAd(machineName: String) {
+        let nativeAdCoordinator = NativeAdCoordinator(
+            navigationController: navigationController,
+            machineName: machineName
+        )
+        nativeAdCoordinator.start()
+        childCoordinators.append(nativeAdCoordinator)
     }
 }

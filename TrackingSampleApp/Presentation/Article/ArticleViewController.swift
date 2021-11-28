@@ -13,6 +13,10 @@ final class ArticleViewController: UIViewController {
     private let titleDescriptionView = TitleDescriptionView()
     private let tableView = UITableView(frame: .zero, style: .plain)
     
+    var didSelectArticle: ((String) -> Void)?
+    var didSelectNativeAd: ((String) -> Void)?
+    var didSelectOffer: ((String) -> Void)?
+    
     init(viewModel: ArticleViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -79,7 +83,16 @@ final class ArticleViewController: UIViewController {
 
 extension ArticleViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        guard let widget = viewModel.getItemAt(index: indexPath.row) else {
+            return
+        }
+        if widget is Article {
+            didSelectArticle?(widget.machineName)
+        } else if widget is NativeAd {
+            didSelectNativeAd?(widget.machineName)
+        } else if widget is Offer {
+            didSelectOffer?(widget.machineName)
+        }
     }
 }
 
