@@ -26,6 +26,7 @@ final class NativeAdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        viewModel.trackNativeAdImpression()
     }
     
     override func viewWillLayoutSubviews() {

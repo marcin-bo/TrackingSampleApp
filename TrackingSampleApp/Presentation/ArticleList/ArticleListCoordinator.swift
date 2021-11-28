@@ -9,6 +9,8 @@ import UIKit
 
 final class ArticleListCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
+    let eventsTracking: EventsTracking
+    
     var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
@@ -18,8 +20,12 @@ final class ArticleListCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let articleListViewController: ArticleListViewController
 
-    init(dependencies: RepositoryDependencies) {
+    init(
+        dependencies: RepositoryDependencies,
+        eventsTracking: EventsTracking
+    ) {
         self.dependencies = dependencies
+        self.eventsTracking = eventsTracking
         
         let viewModel = ArticleListViewModel(
             articlesRepository: dependencies.articlesRepository
@@ -33,6 +39,7 @@ final class ArticleListCoordinator: Coordinator {
     
     private func setupActions() {
         let didSelectArticle: (Article) -> Void = { [weak self] article in
+            self?.trackArticleClick(article)
             self?.presentArticle(machineName: article.machineName)
         }
         let actions = ArticleListViewModelActions(didSelectArticle: didSelectArticle)
@@ -45,3 +52,9 @@ final class ArticleListCoordinator: Coordinator {
 }
 
 extension ArticleListCoordinator: ArticlePresenting { }
+
+extension ArticleListCoordinator: HasTrackingOrigin {
+    var trackingOrigin: TrackingOrigin {
+        .articleList
+    }
+}

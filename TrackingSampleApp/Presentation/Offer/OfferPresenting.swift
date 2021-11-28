@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol OfferPresenting: Coordinator, HasOffersRepository {
+protocol OfferPresenting: Coordinator, HasOffersRepository, OfferTracking {
     var navigationController: UINavigationController { get }
     
     func presentOffer(machineName: String)
@@ -18,7 +18,9 @@ extension OfferPresenting {
         let offerCoordinator = OfferCoordinator(
             navigationController: navigationController,
             machineName: machineName,
-            offersRepository: offersRepository
+            offersRepository: offersRepository,
+            eventsTracking: eventsTracking,
+            trackingOrigin: trackingOrigin
         )
         offerCoordinator.start()
         childCoordinators.append(offerCoordinator)

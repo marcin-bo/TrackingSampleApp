@@ -9,6 +9,9 @@ import UIKit
 
 final class ArticleCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
+    let eventsTracking: EventsTracking
+    let trackingOrigin: TrackingOrigin
+    
     var childCoordinators = [Coordinator]()
     
     var rootViewController: UIViewController {
@@ -21,9 +24,13 @@ final class ArticleCoordinator: Coordinator {
     init(
         navigationController: UINavigationController,
         machineName: String,
-        dependencies: RepositoryDependencies
+        dependencies: RepositoryDependencies,
+        eventsTracking: EventsTracking,
+        trackingOrigin: TrackingOrigin
     ) {
         self.dependencies = dependencies
+        self.eventsTracking = eventsTracking
+        self.trackingOrigin = trackingOrigin
         self.navigationController = navigationController
         self.articleViewController = ArticleViewController(
             viewModel: ArticleViewModel(
@@ -36,15 +43,26 @@ final class ArticleCoordinator: Coordinator {
 
     private func setupActions() {
         let didSelectWidget: (Widget) -> Void = { [weak self] widget in
-            if widget is Article {
+            if let article = widget as? Article {
+                self?.trackArticleClick(article)
                 self?.presentArticle(machineName: widget.machineName)
-            } else if widget is NativeAd {
+            } else if let nativeAd = widget as? NativeAd {
+                self?.trackNativeAdClick(nativeAd)
                 self?.presentNativeAd(machineName: widget.machineName)
-            } else if widget is Offer {
+            } else if let offer = widget as? Offer {
+                self?.trackOfferClick(offer)
                 self?.presentOffer(machineName: widget.machineName)
             }
         }
-        let actions = ArticleViewModelActions(didSelectWidget: didSelectWidget)
+        
+        let articleImpression: (Article) -> Void = { [weak self] article in
+            self?.trackArticleImpression(article)
+        }
+        
+        let actions = ArticleViewModelActions(
+            didSelectWidget: didSelectWidget,
+            articleImpression: articleImpression
+        )
         articleViewController.updateViewModelActions(actions)
     }
 

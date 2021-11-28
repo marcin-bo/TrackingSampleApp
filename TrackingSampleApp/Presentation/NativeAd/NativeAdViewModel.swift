@@ -12,6 +12,7 @@ protocol NativeAdViewModelInterface {
     
     func count() -> Int
     func getWidgetAt(index: Int) -> Widget?
+    func trackNativeAdImpression()
     
     // Actions
     var actions: NativeAdViewModelActions? { get set }
@@ -19,6 +20,7 @@ protocol NativeAdViewModelInterface {
 
 struct NativeAdViewModelActions {
     let didSelectWidget: ((Widget) -> Void)?
+    let nativeAdImpression: ((NativeAd) -> Void)?
 }
 
 struct NativeAdViewModel {
@@ -52,5 +54,10 @@ extension NativeAdViewModel: NativeAdViewModelInterface {
             return nil
         }
         return nativeAd.widgets[index]
+    }
+    
+    func trackNativeAdImpression() {
+        guard let nativeAd = nativeAd else { return }
+        actions?.nativeAdImpression?(nativeAd)
     }
 }

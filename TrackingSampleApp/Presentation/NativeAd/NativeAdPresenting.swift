@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol NativeAdPresenting: Coordinator {
+protocol NativeAdPresenting: Coordinator, NativeAdTracking {
     var dependencies: RepositoryDependencies { get }
     var navigationController: UINavigationController { get }
     
@@ -19,7 +19,9 @@ extension NativeAdPresenting {
         let nativeAdCoordinator = NativeAdCoordinator(
             navigationController: navigationController,
             machineName: machineName,
-            dependencies: dependencies
+            dependencies: dependencies,
+            eventsTracking: eventsTracking,
+            trackingOrigin: trackingOrigin
         )
         nativeAdCoordinator.start()
         childCoordinators.append(nativeAdCoordinator)

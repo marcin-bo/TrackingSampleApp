@@ -12,6 +12,7 @@ protocol ArticleViewModelInterface {
     
     func count() -> Int
     func getWidgetAt(index: Int) -> Widget?
+    func trackArticleImpression()
     
     // Actions
     var actions: ArticleViewModelActions? { get set }
@@ -19,6 +20,7 @@ protocol ArticleViewModelInterface {
 
 struct ArticleViewModelActions {
     let didSelectWidget: ((Widget) -> Void)?
+    let articleImpression: ((Article) -> Void)?
 }
 
 struct ArticleViewModel {
@@ -52,5 +54,10 @@ extension ArticleViewModel: ArticleViewModelInterface {
             return nil
         }
         return article.widgets[index]
+    }
+    
+    func trackArticleImpression() {
+        guard let article = article else { return }
+        actions?.articleImpression?(article)
     }
 }

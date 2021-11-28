@@ -49,6 +49,10 @@
 		5A6815D427541A0B000B65B3 /* ArticleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815D327541A0B000B65B3 /* ArticleEvents.swift */; };
 		5A6815D927541A23000B65B3 /* OfferEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815D827541A23000B65B3 /* OfferEvents.swift */; };
 		5A6815DE27541A3B000B65B3 /* NativeAdEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815DD27541A3B000B65B3 /* NativeAdEvents.swift */; };
+		5A6815ED275423F7000B65B3 /* OfferTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815EC275423F7000B65B3 /* OfferTracking.swift */; };
+		5A6815F527542405000B65B3 /* HasTrackingOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815F427542405000B65B3 /* HasTrackingOrigin.swift */; };
+		5A6815FA2754258E000B65B3 /* NativeAdTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6815F92754258E000B65B3 /* NativeAdTracking.swift */; };
+		5A6816052754259D000B65B3 /* ArticleTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6816042754259D000B65B3 /* ArticleTracking.swift */; };
 		5A7BAB1F274FFA7C006BFDE7 /* WidgetViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7BAB1E274FFA7C006BFDE7 /* WidgetViewCell.swift */; };
 		5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADBBCDF274D969500BF096C /* AppDelegate.swift */; };
 		5ADBBCE9274D96A000BF096C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADBBCE8274D96A000BF096C /* Assets.xcassets */; };
@@ -126,6 +130,10 @@
 		5A6815D327541A0B000B65B3 /* ArticleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleEvents.swift; sourceTree = "<group>"; };
 		5A6815D827541A23000B65B3 /* OfferEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferEvents.swift; sourceTree = "<group>"; };
 		5A6815DD27541A3B000B65B3 /* NativeAdEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdEvents.swift; sourceTree = "<group>"; };
+		5A6815EC275423F7000B65B3 /* OfferTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTracking.swift; sourceTree = "<group>"; };
+		5A6815F427542405000B65B3 /* HasTrackingOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasTrackingOrigin.swift; sourceTree = "<group>"; };
+		5A6815F92754258E000B65B3 /* NativeAdTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeAdTracking.swift; sourceTree = "<group>"; };
+		5A6816042754259D000B65B3 /* ArticleTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTracking.swift; sourceTree = "<group>"; };
 		5A7BAB1E274FFA7C006BFDE7 /* WidgetViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetViewCell.swift; sourceTree = "<group>"; };
 		5ADBBCDC274D969500BF096C /* TrackingSampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TrackingSampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADBBCDF274D969500BF096C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -312,6 +320,17 @@
 			path = Events;
 			sourceTree = "<group>";
 		};
+		5A6815EB275423A2000B65B3 /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				5A6815F427542405000B65B3 /* HasTrackingOrigin.swift */,
+				5A6816042754259D000B65B3 /* ArticleTracking.swift */,
+				5A6815F92754258E000B65B3 /* NativeAdTracking.swift */,
+				5A6815EC275423F7000B65B3 /* OfferTracking.swift */,
+			);
+			path = Tracking;
+			sourceTree = "<group>";
+		};
 		5A7BAB0F274FF04B006BFDE7 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +342,7 @@
 				5A6815432753778A000B65B3 /* Article */,
 				5A6815682753D30E000B65B3 /* NativeAd */,
 				5A18B7DF2752CEFF0053AC19 /* Offer */,
+				5A6815EB275423A2000B65B3 /* Tracking */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -612,6 +632,7 @@
 				5A30AC16274E814900B7B197 /* FeedViewController.swift in Sources */,
 				5A30AC58274EF44A00B7B197 /* ArticleListCoordinator.swift in Sources */,
 				5A6815C8275408AC000B65B3 /* TrackingService.swift in Sources */,
+				5A6815FA2754258E000B65B3 /* NativeAdTracking.swift in Sources */,
 				5A6815B4275407EB000B65B3 /* EventsTracking.swift in Sources */,
 				5ADBBCE0274D969500BF096C /* AppDelegate.swift in Sources */,
 				5A6815DE27541A3B000B65B3 /* NativeAdEvents.swift in Sources */,
@@ -619,8 +640,10 @@
 				5A6815D427541A0B000B65B3 /* ArticleEvents.swift in Sources */,
 				5A68155B2753CDD2000B65B3 /* TitleDescriptionView.swift in Sources */,
 				5A7BAB1F274FFA7C006BFDE7 /* WidgetViewCell.swift in Sources */,
+				5A6815ED275423F7000B65B3 /* OfferTracking.swift in Sources */,
 				5A30AC1B274E817800B7B197 /* ArticleListViewController.swift in Sources */,
 				5A18B7CC2752A00B0053AC19 /* FeedRepository.swift in Sources */,
+				5A6816052754259D000B65B3 /* ArticleTracking.swift in Sources */,
 				5A18B771275267300053AC19 /* String+Extensions.swift in Sources */,
 				5A68154D2753782C000B65B3 /* ArticleViewController.swift in Sources */,
 				5A18B7C127529B9C0053AC19 /* NativeAdsRepository.swift in Sources */,
@@ -646,6 +669,7 @@
 				5A18B79E27526DDD0053AC19 /* OfferListViewModel.swift in Sources */,
 				5A30AC20274E818700B7B197 /* OfferListViewController.swift in Sources */,
 				5A6815A92753F4B4000B65B3 /* HasNativeAdsRepository.swift in Sources */,
+				5A6815F527542405000B65B3 /* HasTrackingOrigin.swift in Sources */,
 				5AEA09862751966300F7D216 /* Widget.swift in Sources */,
 				5A6815892753DDE3000B65B3 /* ArticlePresenting.swift in Sources */,
 				5A18B7A327526DE90053AC19 /* ArticleListViewModel.swift in Sources */,

@@ -26,6 +26,7 @@ final class ArticleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        viewModel.trackArticleImpression()
     }
     
     override func viewWillLayoutSubviews() {

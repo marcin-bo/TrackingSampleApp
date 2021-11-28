@@ -31,7 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             offersRepository: offersRepository
         )
         
-        appFlowCoordinator = AppFlowCoordinator(repositoryContainer: repositoryContainer)
+        let eventsTracking: EventsTracking = TrackingService()
+        
+        appFlowCoordinator = AppFlowCoordinator(
+            repositoryContainer: repositoryContainer,
+            eventsTracking: eventsTracking
+        )
         window?.rootViewController = appFlowCoordinator?.rootViewController
         window?.makeKeyAndVisible()
         

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ArticlePresenting: Coordinator {
+protocol ArticlePresenting: Coordinator, ArticleTracking {
     var dependencies: RepositoryDependencies { get }
     var navigationController: UINavigationController { get }
     
@@ -19,7 +19,9 @@ extension ArticlePresenting {
         let articleCoordinator = ArticleCoordinator(
             navigationController: navigationController,
             machineName: machineName,
-            dependencies: dependencies
+            dependencies: dependencies,
+            eventsTracking: eventsTracking,
+            trackingOrigin: trackingOrigin
         )
         articleCoordinator.start()
         childCoordinators.append(articleCoordinator)

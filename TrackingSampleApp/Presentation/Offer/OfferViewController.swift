@@ -8,7 +8,7 @@
 import UIKit
 
 final class OfferViewController: UIViewController {
-    private let viewModel: OfferViewModel
+    private var viewModel: OfferViewModelInterface
     
     private let scrollView = UIScrollView()
     private let stackView = UIStackView()
@@ -16,7 +16,7 @@ final class OfferViewController: UIViewController {
     private let descriptionLabel = UILabel()
     private let purchaseButton = UIButton()
     
-    init(viewModel: OfferViewModel) {
+    init(viewModel: OfferViewModelInterface) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -29,12 +29,17 @@ final class OfferViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = viewModel.title
+        viewModel.trackOfferImpression()
     }
     
     override func loadView() {
         super.loadView()
         view.backgroundColor = .white
         setupSubviews()
+    }
+    
+    func updateViewModelActions(_ actions: OfferViewModelActions) {
+        viewModel.actions = actions
     }
     
     private func setupSubviews() {
@@ -78,6 +83,11 @@ final class OfferViewController: UIViewController {
         purchaseButton.setTitleColor(.white, for: .normal)
         purchaseButton.layer.cornerRadius = 15
         purchaseButton.clipsToBounds = true
+        purchaseButton.addTarget(self, action: #selector(purchaseButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func purchaseButtonTapped() {
+        viewModel.trackOfferConversion()
     }
     
     private func setupSubviewsConstraints() {

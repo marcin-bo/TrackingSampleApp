@@ -9,6 +9,7 @@ import UIKit
 
 final class FeedCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
+    let eventsTracking: EventsTracking
     
     var childCoordinators = [Coordinator]()
     
@@ -19,8 +20,12 @@ final class FeedCoordinator: Coordinator {
     let navigationController: UINavigationController
     private let feedViewController: FeedViewController
 
-    init(dependencies: RepositoryDependencies) {
+    init(
+        dependencies: RepositoryDependencies,
+        eventsTracking: EventsTracking
+    ) {
         self.dependencies = dependencies
+        self.eventsTracking = eventsTracking
         
         let viewModel = FeedViewModel(feedRepository: dependencies.feedRepository)
         
@@ -34,11 +39,14 @@ final class FeedCoordinator: Coordinator {
     
     private func setupActions() {
         let didSelectWidget: (Widget) -> Void = { [weak self] widget in
-            if widget is Article {
+            if let article = widget as? Article {
+                self?.trackArticleClick(article)
                 self?.presentArticle(machineName: widget.machineName)
-            } else if widget is NativeAd {
+            } else if let nativeAd = widget as? NativeAd {
+                self?.trackNativeAdClick(nativeAd)
                 self?.presentNativeAd(machineName: widget.machineName)
-            } else if widget is Offer {
+            } else if let offer = widget as? Offer {
+                self?.trackOfferClick(offer)
                 self?.presentOffer(machineName: widget.machineName)
             }
         }
@@ -58,5 +66,11 @@ extension FeedCoordinator: NativeAdPresenting { }
 extension FeedCoordinator: OfferPresenting {
     var offersRepository: OffersRepository {
         dependencies.offersRepository
+    }
+}
+
+extension FeedCoordinator: HasTrackingOrigin {
+    var trackingOrigin: TrackingOrigin {
+        .feed
     }
 }

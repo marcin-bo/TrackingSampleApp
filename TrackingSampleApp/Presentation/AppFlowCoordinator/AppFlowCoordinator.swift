@@ -16,12 +16,24 @@ final class AppFlowCoordinator: Coordinator {
     
     private let tabBarController: MainTabBarController
     
-    init(repositoryContainer: RepositoryDependencies) {
+    init(
+        repositoryContainer: RepositoryDependencies,
+        eventsTracking: EventsTracking
+    ) {
         self.tabBarController = MainTabBarController()
         
-        let feedCoordinator = FeedCoordinator(dependencies: repositoryContainer)
-        let articleListCoordinator = ArticleListCoordinator(dependencies: repositoryContainer)
-        let offerListCoordinator = OfferListCoordinator(offersRepository: repositoryContainer.offersRepository)
+        let feedCoordinator = FeedCoordinator(
+            dependencies: repositoryContainer,
+            eventsTracking: eventsTracking
+        )
+        let articleListCoordinator = ArticleListCoordinator(
+            dependencies: repositoryContainer,
+            eventsTracking: eventsTracking
+        )
+        let offerListCoordinator = OfferListCoordinator(
+            offersRepository: repositoryContainer.offersRepository,
+            eventsTracking: eventsTracking
+        )
         
         let tab1 = feedCoordinator.rootViewController
         tab1.tabBarItem = UITabBarItem(

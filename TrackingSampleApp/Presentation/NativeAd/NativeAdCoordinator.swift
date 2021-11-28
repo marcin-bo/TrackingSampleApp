@@ -9,6 +9,8 @@ import UIKit
 
 final class NativeAdCoordinator: Coordinator {
     let dependencies: RepositoryDependencies
+    let eventsTracking: EventsTracking
+    let trackingOrigin: TrackingOrigin
     
     var childCoordinators = [Coordinator]()
     
@@ -22,9 +24,13 @@ final class NativeAdCoordinator: Coordinator {
     init(
         navigationController: UINavigationController,
         machineName: String,
-        dependencies: RepositoryDependencies
+        dependencies: RepositoryDependencies,
+        eventsTracking: EventsTracking,
+        trackingOrigin: TrackingOrigin
     ) {
         self.dependencies = dependencies
+        self.eventsTracking = eventsTracking
+        self.trackingOrigin = trackingOrigin
         self.navigationController = navigationController
         self.nativeAdViewController = NativeAdViewController(
             viewModel: NativeAdViewModel(
@@ -37,15 +43,26 @@ final class NativeAdCoordinator: Coordinator {
     
     private func setupActions() {
         let didSelectWidget: (Widget) -> Void = { [weak self] widget in
-            if widget is Article {
+            if let article = widget as? Article {
+                self?.trackArticleClick(article)
                 self?.presentArticle(machineName: widget.machineName)
-            } else if widget is NativeAd {
+            } else if let nativeAd = widget as? NativeAd {
+                self?.trackNativeAdClick(nativeAd)
                 self?.presentNativeAd(machineName: widget.machineName)
-            } else if widget is Offer {
+            } else if let offer = widget as? Offer {
+                self?.trackOfferClick(offer)
                 self?.presentOffer(machineName: widget.machineName)
             }
         }
-        let actions = NativeAdViewModelActions(didSelectWidget: didSelectWidget)
+        
+        let nativeAdImpression: (NativeAd) -> Void = { [weak self] nativeAd in
+            self?.trackNativeAdImpression(nativeAd)
+        }
+        
+        let actions = NativeAdViewModelActions(
+            didSelectWidget: didSelectWidget,
+            nativeAdImpression: nativeAdImpression
+        )
         nativeAdViewController.updateViewModelActions(actions)
     }
 
